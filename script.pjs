@@ -40,13 +40,17 @@ function undo() {
 
 function onMouseDown() {
   tmpElems = [];
+  // var images = colors[currentColor];
+  // var random = Math.floor(Math.random() * images.length);
+  // var image = images[random];
+  // url = 'images/' + currentColor + '/' + image;
+}
+
+function onMouseDrag(event) {
   var images = colors[currentColor];
   var random = Math.floor(Math.random() * images.length);
   var image = images[random];
   url = 'images/' + currentColor + '/' + image;
-}
-
-function onMouseDrag(event) {
   var radius = Math.min(Math.max(Math.abs(event.delta.y), Math.abs(event.delta.x)), 160);
   var raster = new Raster()
   raster.opacity = 0;
