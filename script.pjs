@@ -1,0 +1,62 @@
+var cmdKeyPressed = false;
+var url;
+var elems = [];
+var tmpElems;
+var urls = {
+  red: ['url1', 'url2'],
+  blue: ['url1', 'url2']
+}
+var currentColor = 'red';
+
+document.addEventListener('keydown', function(e) {
+  if (e.keyCode === 91) {
+    cmdKeyPressed = true;
+  }
+
+  if (cmdKeyPressed && e.keyCode === 90) {
+    undo();
+  }
+}, false);
+
+document.addEventListener('keyup', function(e) {
+  if (e.keyCode === 91) {
+    cmdKeyPressed = false;
+  }
+}, false);
+
+function undo() {
+  if (elems.length) {
+    var arr = elems[elems.length - 1];
+    for (var i = 0; i < arr.length; i++) {
+      arr[i].remove();
+    }
+    elems.pop();
+    paper.view.draw();
+  }
+}
+
+function onMouseDown() {
+  tmpElems = [];
+  var random = Math.floor(Math.random() * 6);
+  url = 'images/red_' + random + '.png';
+}
+
+function onMouseDrag(event) {
+  var radius = Math.min(Math.max(Math.abs(event.delta.y), Math.abs(event.delta.x)), 160);
+  var raster = new Raster()
+  raster.opacity = 0;
+  raster.onLoad = function() {
+    this.size = new Size(radius, radius);
+    this.opacity = 1;
+  }
+  raster.source = url;
+  raster.position = event.point;
+  tmpElems.push(raster);
+}
+
+function onMouseUp() {
+  if (tmpElems.length) {
+    elems.push(tmpElems.splice(0));
+  }
+  tmpElems = null;
+}
