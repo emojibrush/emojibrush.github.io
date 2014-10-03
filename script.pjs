@@ -1,7 +1,6 @@
+var MAX_RES_SIZE = 160;
 var cmdKeyPressed = false;
 var url;
-var elems = [];
-var tmpElems;
 var currentColor = 'red';
 
 document.addEventListener('keydown', function(e) {
@@ -28,30 +27,20 @@ Array.prototype.slice.call(links).forEach(function(link) {
 });
 
 function undo() {
-  if (elems.length) {
-    var arr = elems[elems.length - 1];
-    for (var i = 0; i < arr.length; i++) {
-      arr[i].remove();
-    }
-    elems.pop();
-    paper.view.draw();
+  project.layers.pop();
+  if (project) {
+    project._needsUpdate = true;
+    project.view.update();
   }
 }
 
 function onMouseDown() {
-  tmpElems = [];
-  // var images = colors[currentColor];
-  // var random = Math.floor(Math.random() * images.length);
-  // var image = images[random];
-  // url = 'images/' + currentColor + '/' + image;
+  project.layers[project.layers.length] = new Layer();
 }
 
 function onMouseDrag(event) {
-  var images = colors[currentColor];
-  var random = Math.floor(Math.random() * images.length);
-  var image = images[random];
-  url = 'images/' + currentColor + '/' + image;
-  var radius = Math.min(Math.max(Math.abs(event.delta.y), Math.abs(event.delta.x)), 160);
+  var imageURL = randomImageURL();
+  var radius = Math.min(Math.max(Math.abs(event.delta.y), Math.abs(event.delta.x)), MAX_RES_SIZE);
   var raster = new Raster()
   raster.opacity = 0;
   raster.onLoad = function() {
@@ -60,12 +49,12 @@ function onMouseDrag(event) {
   }
   raster.source = url;
   raster.position = event.point;
-  tmpElems.push(raster);
 }
 
-function onMouseUp() {
-  if (tmpElems.length) {
-    elems.push(tmpElems.splice(0));
-  }
-  tmpElems = null;
+function randomImageURL() {
+  var images = colors[currentColor];
+  var random = Math.floor(Math.random() * images.length);
+  var image = images[random];
+  url = 'images/' + currentColor + '/' + image;
+  return url;
 }
