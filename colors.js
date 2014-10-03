@@ -1,7 +1,3 @@
-// s/\n/\ /g | s/\s\{2,\}/\ /g | s/\ /\r/g
-// s/^/\"/
-// s/$/\",/
-
 var colors = {
   'red': [ "103.png", "109.png", "128.png", "134.png", "14.png", "15.png", "164.png", "224.png", "238.png", "32.png", "479.png", "506.png", "571.png", "662.png", "67.png", "820.png", "105.png", "124.png", "132.png", "136.png", "144.png", "161.png", "170.png", "229.png", "239.png", "45.png", "480.png", "520.png", "65.png", "668.png", "80.png", "86.png", "108.png", "127.png", "133.png", "137.png", "147.png", "163.png", "213.png", "234.png", "255.png", "454.png", "497.png", "562.png", "66.png", "669.png", "817.png", "87.png" ],
   'red-orange': [ "205.png", "221.png", "225.png", "237.png", "365.png", "390.png", "523.png" ],
