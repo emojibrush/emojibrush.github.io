@@ -2,10 +2,6 @@ var cmdKeyPressed = false;
 var url;
 var elems = [];
 var tmpElems;
-var urls = {
-  red: ['url1', 'url2'],
-  blue: ['url1', 'url2']
-}
 var currentColor = 'red';
 
 document.addEventListener('keydown', function(e) {
@@ -37,8 +33,10 @@ function undo() {
 
 function onMouseDown() {
   tmpElems = [];
-  var random = Math.floor(Math.random() * 6);
-  url = 'images/red_' + random + '.png';
+  var images = colors[currentColor];
+  var random = Math.floor(Math.random() * images.length);
+  var image = images[random];
+  url = 'images/' + currentColor + '/' + image;
 }
 
 function onMouseDrag(event) {
