@@ -32,15 +32,13 @@ function onMouseDrag(event) {
   }
   raster.source = url;
   raster.position = event.point;
-
-  // Only blur if we're drawing under the palette
-  // if (testRect.contains(event.point)) {
-  // }
 }
+
 function onMouseUp() {
   clearTimeout(timer);
   timer = null;
   setBackgroundBlurredImage()
+  setLinkURL();
 }
 
 var timer;

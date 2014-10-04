@@ -23,10 +23,7 @@ function takeScreenShot() {
   return decodedPng;
 }
 
-function download() {
-  Canvas2Image.saveAsPNG(document.getElementById('canvas'));
+function setLinkURL() {
+  var canvas = document.getElementById('canvas');
+  document.getElementById('download').setAttribute('href', canvas.toDataURL());
 }
-
-document.getElementById('download').addEventListener('click', function(e) {
-  download();
-}, false);
