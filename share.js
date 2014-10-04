@@ -1,7 +1,6 @@
 var FBShare = {
   share: function(image) {
-    FB.checkLoginStatus(function(response) {
-
+    FB.getLoginStatus(function(response) {
       if (response.status === "connected") {
         FBShare.postImage(response.authResponse.accessToken, "EmojiBrush", "image/png", decodedPng, "www.nobodysofnyc.com/emoji-brush");
       } else if (response.status === "not_authorized") {
