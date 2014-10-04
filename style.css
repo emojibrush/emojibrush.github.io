@@ -1,0 +1,42 @@
+body { margin: 0px; }
+#palette-container {
+  text-align: center;
+}
+
+#palette {
+  display: inline-block;
+  padding: 30px;
+  box-sizing: border-box;
+  background-color: #ECEDEF;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+.color {
+  height: 46px;
+  width: 46px;
+  display: block;
+  float: left;
+  border-radius: 30px;
+  margin-right: 14px;
+}
+
+.color:last-child {
+  margin-right: 0px;
+}
+
+.color[data-color="red"] { background: #F80D20; }
+.color[data-color="red-orange"] { background: #EF5D22; }
+.color[data-color="orange"] { background: #FD9927; }
+.color[data-color="yellow-orange"] { background: #FECC2E; }
+.color[data-color="yellow"] { background: #FEF235; }
+.color[data-color="yellow-green"] { background: #B8D432; }
+.color[data-color="green"] { background: #3DB44B; }
+.color[data-color="blue-green"] { background: #1BABB3; }
+.color[data-color="blue"] { background: #2E40DF; }
+.color[data-color="blue-violet"] { background: #2C2B75; }
+.color[data-color="violet"] { background: #68397F; }
+.color[data-color="red-violet"] { background: #D2117B; }
+.color[data-color="white"] { background: #F4F4F4; width: 45px; height: 45px; border: 1px #ccc solid;  }
+.color[data-color="gray"] { background: #A7AAA9; }
+.color[data-color="black"] { background: #232930; }
