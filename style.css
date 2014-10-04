@@ -1,10 +1,11 @@
-body { margin: 0px; }
+body { margin: 0px; overflow: hidden; }
 
 #palette-container {
   text-align: center;
   background-color: transparent;
   position: absolute;
   width: 100%;
+  min-width: 947px;
   top: 0px;
   left: 0px;
   -webkit-transition: -webkit-transform 0.3s;
