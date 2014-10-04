@@ -18,6 +18,7 @@ var testRect = new Shape.Rectangle(new Point(rect.left, rect.top), new Size(offs
 
 function setBackgroundBlurredImage(imageData) {
   background.style.backgroundImage = 'url(' + imageData + ')';
+  window.resize();
 }
 
 /* Paper.js Events */

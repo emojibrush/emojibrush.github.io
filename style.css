@@ -41,6 +41,12 @@ body { margin: 0px; }
   float: left;
   border-radius: 30px;
   margin-right: 14px;
+  -webkit-transition: -webkit-transform 0.2s;
+  -webkit-transform: scale(1.0);
+}
+
+.color.current {
+  -webkit-transform: scale(1.4);
 }
 
 .color:last-child {
