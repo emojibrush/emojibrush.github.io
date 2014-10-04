@@ -12,5 +12,5 @@ function setBackgroundBlurredImage(imageData) {
   var imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
   var ctx2 = background.getContext('2d');
   ctx2.putImageData(imageData, -offset.left, 0);
-  stackBlurCanvasRGBA("blur-canvas", 0, 0, background.width, background.height, 23);
+  stackBlurCanvasRGBA("blur-canvas", 0, 0, background.width, background.height, 50);
 }

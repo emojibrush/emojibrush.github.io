@@ -8,6 +8,7 @@ body { margin: 0px; }
   top: 0px;
   left: 0px;
   -webkit-transition: -webkit-transform 0.3s;
+  overflow: hidden;
 }
 
 #palette-container.hidden {
@@ -29,7 +30,13 @@ body { margin: 0px; }
   left: 0px;
   z-index: 1;
   position: absolute;
-  opacity: 0.14;
+  opacity: 0.24;
+  -webkit-transition: -webkit-transform 0.3s;
+  -webkit-transform: translate3d(0px, 0px, 0px);
+}
+
+#palette-container.hidden #blur-canvas {
+  -webkit-transform: translate3d(0px, 107px, 0px);
 }
 
 .color {
