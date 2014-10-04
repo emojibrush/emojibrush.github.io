@@ -23,12 +23,10 @@ function takeScreenShot() {
   return decodedPng;
 }
 
-function download(link) {
-  link.href = document.getElementById('canvas').toDataURL();
-  link.download = "mike.png";
+function download() {
+  Canvas2Image.saveAsPNG(document.getElementById('canvas'));
 }
 
 document.getElementById('download').addEventListener('click', function(e) {
-  e.preventDefault();
-  download(e.currentTarget);
+  download();
 }, false);
