@@ -1,8 +1,8 @@
 function EmojiBrush() {
   this.MAX_RES_SIZE = 160;
   this.cmdKeyPressed = false;
-  this.url;
   this.currentColor = 'red';
+  this.url;
 
   this.bindEvents();
 }
@@ -41,7 +41,7 @@ EmojiBrush.prototype = {
 
   takeScreenShot: function() {
     var canvas = document.getElementsByTagName('canvas')[0];
-    var base64Data = canvas.toDataURL();
+    // var base64Data = canvas.toDataURL();
     // var binaryData = this.base64ToBinary(base64Data);
   },
 

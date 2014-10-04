@@ -1,15 +1,7 @@
 var brush = new EmojiBrush();
 
 /* For CSS Blur (seems to work perfectly for me in Chrome) */
-var testRectPoint = new Point(rect.left, rect.top);
-var testRectSize = new Size(offset.width + 30, offset.height + 15);
-var testRect = new Shape.Rectangle(testRectPoint, testRectSize);
-var background = document.getElementById('blur-canvas');
-
-function setBackgroundBlurredImage(imageData) {
-  console.log(imageData);
-  // stackBlurCanvasRGBA("blur-canvas", 0, 0, background.width, background.height, 100);
-}
+var testRect = new Shape.Rectangle(new Point(rect.left, rect.top), new Size(offset.width + 30, offset.height + 15));
 
 /* Paper.js Events */
 
@@ -31,11 +23,8 @@ function onMouseDrag(event) {
   raster.source = url;
   raster.position = event.point;
 
+  // Only blur if we're drawing under the palette
   if (testRect.contains(event.point)) {
-    var ctx = canvas.getContext('2d');
-    var imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
-    var ctx2 = background.getContext('2d');
-    ctx2.putImageData(imageData, -offset.left, 0);
-    stackBlurCanvasRGBA("blur-canvas", 0, 0, background.width, background.height, 30);
+    setBackgroundBlurredImage()
   }
 }
