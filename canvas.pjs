@@ -50,7 +50,9 @@ function onMouseMove(event) {
   } else {
     clearTimeout(timer);
     timer = null;
-    brush.hidePalette()
+    if ( ! initialTimer) {
+      brush.hidePalette()
+    }
   }
 }
 
