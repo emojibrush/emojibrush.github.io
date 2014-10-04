@@ -14,3 +14,12 @@ function setBackgroundBlurredImage(imageData) {
   ctx2.putImageData(imageData, -offset.left, 0);
   stackBlurCanvasRGBA("blur-canvas", 0, 0, background.width, background.height, 50);
 }
+
+function takeScreenShot() {
+  var canvas = document.getElementsByTagName('canvas')[0];
+  var data = canvas.toDataURL("image/png");
+  var encodedPng = data.substring(data.indexOf(',') + 1, data.length);
+  var decodedPng = Base64Binary.decode(encodedPng);
+  return decodedPng;
+}
+

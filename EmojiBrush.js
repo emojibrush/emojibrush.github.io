@@ -44,13 +44,6 @@ EmojiBrush.prototype = {
     return url;
   },
 
-  takeScreenShot: function() {
-    var canvas = document.getElementsByTagName('canvas')[0];
-    var base64Data = canvas.toDataURL();
-    return base64Data;
-    // var binaryData = this.base64ToBinary(base64Data);
-  },
-
   hidePalette: function() {
     this.paletteIsShowing = false;
     this.palette.setAttribute('class', 'hidden');
