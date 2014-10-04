@@ -45,7 +45,7 @@ function onMouseMove(event) {
     if ( ! timer) {
       timer = setTimeout(function() {
         brush.showPalette()
-      }, 400);
+      }, 340);
     }
   } else {
     clearTimeout(timer);

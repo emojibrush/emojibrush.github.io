@@ -46,7 +46,8 @@ EmojiBrush.prototype = {
 
   takeScreenShot: function() {
     var canvas = document.getElementsByTagName('canvas')[0];
-    // var base64Data = canvas.toDataURL();
+    var base64Data = canvas.toDataURL();
+    return base64Data;
     // var binaryData = this.base64ToBinary(base64Data);
   },
 

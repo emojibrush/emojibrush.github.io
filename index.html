@@ -37,6 +37,25 @@
   <script src="colors.js"></script>
   <script src="EmojiBrush.js"></script>
   <script src="script.js"></script>
+  <script src="share.js"></script>
   <script type="text/paperscript" src="canvas.pjs" canvas="canvas"></script>
+
+  <script>
+    window.fbAsyncInit = function() {
+      FB.init({
+        appId      : '1542199379325603',
+        xfbml      : true,
+        version    : 'v2.1'
+      });
+    };
+
+    (function(d, s, id){
+       var js, fjs = d.getElementsByTagName(s)[0];
+       if (d.getElementById(id)) {return;}
+       js = d.createElement(s); js.id = id;
+       js.src = "//connect.facebook.net/en_US/sdk.js";
+       fjs.parentNode.insertBefore(js, fjs);
+     }(document, 'script', 'facebook-jssdk'));
+  </script>
 </body>
 </html>
