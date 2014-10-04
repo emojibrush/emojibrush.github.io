@@ -36,9 +36,12 @@ function onMouseUp() {
 }
 
 var timer;
+var initialTimer;
 
 function onMouseMove(event) {
   if (testRect.contains(event.point)) {
+    clearTimeout(initialTimer);
+    initialTimer = null;
     if ( ! timer) {
       timer = setTimeout(function() {
         brush.showPalette()
@@ -51,6 +54,6 @@ function onMouseMove(event) {
   }
 }
 
-setTimeout(function() {
+initialTimer = setTimeout(function() {
   brush.hidePalette();
 }, 1000);
