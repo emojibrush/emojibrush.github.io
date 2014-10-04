@@ -51,10 +51,12 @@ EmojiBrush.prototype = {
     document.addEventListener('keydown', function(event) {self.keyDown(event);}, false);
     document.addEventListener('keyup', function(event) {self.keyUp(event);}, false);
 
-    var links = document.getElementsByClassName('color');
-    Array.prototype.slice.call(links).forEach(function(link) {
+    var links = Array.prototype.slice.call(document.getElementsByClassName('color'));
+    links.forEach(function(link) {
       link.addEventListener('click', function(e) {
+        links.forEach(function(link) { link.setAttribute('class', 'color') });
         var elem = e.currentTarget;
+        elem.setAttribute('class', 'color current');
         self.currentColor = elem.getAttribute('data-color');
       }, false);
     });
