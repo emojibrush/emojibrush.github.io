@@ -41,8 +41,10 @@ function onMouseDrag(event) {
   raster.position = event.point;
 
   // a lil sugar
+  /*
   if (testRect.contains(event.point)) {
     var image = canvas.toDataURL();
     setBackgroundBlurredImage(image);
   }
+  */
 }
