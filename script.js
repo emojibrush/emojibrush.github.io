@@ -16,10 +16,19 @@ function setBackgroundBlurredImage(imageData) {
 }
 
 function takeScreenShot() {
-  var canvas = document.getElementsByTagName('canvas')[0];
+  var canvas = document.getElementById('canvas');
   var data = canvas.toDataURL("image/png");
   var encodedPng = data.substring(data.indexOf(',') + 1, data.length);
   var decodedPng = Base64Binary.decode(encodedPng);
   return decodedPng;
 }
 
+function download(link) {
+  link.href = document.getElementById('canvas').toDataURL();
+  link.download = "mike.png";
+}
+
+document.getElementById('download').addEventListener('click', function(e) {
+  e.preventDefault();
+  download(e.currentTarget);
+}, false);
