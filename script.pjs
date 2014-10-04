@@ -1,47 +1,16 @@
-var MAX_RES_SIZE = 160;
-var cmdKeyPressed = false;
-var url;
-var currentColor = 'red';
+var brush = new EmojiBrush();
 
-document.addEventListener('keydown', function(e) {
-  if (e.keyCode === 91) {
-    cmdKeyPressed = true;
-  }
-
-  if (cmdKeyPressed && e.keyCode === 90) {
-    undo();
-  }
-}, false);
-
-document.addEventListener('keyup', function(e) {
-  if (e.keyCode === 91) {
-    cmdKeyPressed = false;
-  }
-}, false);
-
-var links = document.getElementsByClassName('color');
-Array.prototype.slice.call(links).forEach(function(link) {
-  link.addEventListener('click', function(e) {
-    var elem = e.currentTarget;
-    currentColor = elem.getAttribute('data-color');
-  }, false);
-});
-
-function undo() {
-  project.layers.pop();
-  if (project) {
-    project._needsUpdate = true;
-    project.view.update();
-  }
-}
+/* Paper.js Events */
 
 function onMouseDown() {
   project.layers[project.layers.length] = new Layer();
 }
 
 function onMouseDrag(event) {
-  var imageURL = randomImageURL();
-  var radius = Math.min(Math.max(Math.abs(event.delta.y), Math.abs(event.delta.x)), MAX_RES_SIZE);
+  var imageURL = brush.randomImageURL();
+
+  // make sure we don't exceed the max res
+  var radius = Math.min(Math.max(Math.abs(event.delta.y), Math.abs(event.delta.x)), brush.MAX_RES_SIZE);
   var raster = new Raster()
   raster.opacity = 0;
   raster.onLoad = function() {
@@ -50,12 +19,4 @@ function onMouseDrag(event) {
   }
   raster.source = url;
   raster.position = event.point;
-}
-
-function randomImageURL() {
-  var images = colors[currentColor];
-  var random = Math.floor(Math.random() * images.length);
-  var image = images[random];
-  url = 'images/' + currentColor + '/' + image;
-  return url;
 }

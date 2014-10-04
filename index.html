@@ -1,36 +1,40 @@
 <!doctype html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width">
-    <title>Paper</title>
-    <link href="style.css" rel="stylesheet">
-    <script src="paper-full.js"></script>
-    <script type="text/paperscript" src="script.pjs" canvas="canvas"></script>
-  </head>
-  <body>
-    <div id="palette-container">
-      <div id="palette">
-        <a class="color" href="javascript://" data-color="red"></a>
-        <a class="color" href="javascript://" data-color="red-orange"></a>
-        <a class="color" href="javascript://" data-color="orange"></a>
-        <a class="color" href="javascript://" data-color="yellow-orange"></a>
-        <a class="color" href="javascript://" data-color="yellow"></a>
-        <a class="color" href="javascript://" data-color="yellow-green"></a>
-        <a class="color" href="javascript://" data-color="green"></a>
-        <a class="color" href="javascript://" data-color="blue-green"></a>
-        <a class="color" href="javascript://" data-color="blue"></a>
-        <a class="color" href="javascript://" data-color="blue-violet"></a>
-        <a class="color" href="javascript://" data-color="violet"></a>
-        <a class="color" href="javascript://" data-color="red-violet"></a>
-        <a class="color" href="javascript://" data-color="white"></a>
-        <a class="color" href="javascript://" data-color="gray"></a>
-        <a class="color" href="javascript://" data-color="black"></a>
-      </div>
-    </div>
-    <canvas id="canvas" resize></canvas>
 
-    <script src="colors.js"></script>
-    <script src="script.js"></script>
-  </body>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Emoji Brush</title>
+  <link href="style.css" rel="stylesheet">
+  <script src="paper-full.js"></script>
+</head>
+
+<body>
+
+  <div id="palette-container">
+    <div id="palette">
+      <a class="color" href="javascript://" data-color="red"></a>
+      <a class="color" href="javascript://" data-color="red-orange"></a>
+      <a class="color" href="javascript://" data-color="orange"></a>
+      <a class="color" href="javascript://" data-color="yellow-orange"></a>
+      <a class="color" href="javascript://" data-color="yellow"></a>
+      <a class="color" href="javascript://" data-color="yellow-green"></a>
+      <a class="color" href="javascript://" data-color="green"></a>
+      <a class="color" href="javascript://" data-color="blue-green"></a>
+      <a class="color" href="javascript://" data-color="blue"></a>
+      <a class="color" href="javascript://" data-color="blue-violet"></a>
+      <a class="color" href="javascript://" data-color="violet"></a>
+      <a class="color" href="javascript://" data-color="red-violet"></a>
+      <a class="color" href="javascript://" data-color="white"></a>
+      <a class="color" href="javascript://" data-color="gray"></a>
+      <a class="color" href="javascript://" data-color="black"></a>
+    </div>
+  </div>
+
+  <canvas id="canvas" resize></canvas>
+
+  <script src="colors.js"></script>
+  <script src="EmojiBrush.js"></script>
+  <script type="text/paperscript" src="script.pjs" canvas="canvas"></script>
+</body>
 </html>
