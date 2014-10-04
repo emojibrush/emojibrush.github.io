@@ -2,6 +2,9 @@ function EmojiBrush() {
   this.MAX_RES_SIZE = 160;
   this.cmdKeyPressed = false;
   this.currentColor = 'red';
+  this.palette = document.getElementById('palette-container');
+  this.paletteIsShowing = true;
+  this.isDrawing = false;
   this.url;
 
   this.bindEvents();
@@ -29,6 +32,8 @@ EmojiBrush.prototype = {
       paper.project._needsUpdate = true; // forces update
       paper.project.view.update();
     }
+
+    setBackgroundBlurredImage()
   },
 
   randomImageURL: function() {
@@ -43,6 +48,16 @@ EmojiBrush.prototype = {
     var canvas = document.getElementsByTagName('canvas')[0];
     // var base64Data = canvas.toDataURL();
     // var binaryData = this.base64ToBinary(base64Data);
+  },
+
+  hidePalette: function() {
+    this.paletteIsShowing = false;
+    this.palette.setAttribute('class', 'hidden');
+  },
+
+  showPalette: function() {
+    this.paletteIsShowing = true;
+    this.palette.setAttribute('class', '');
   },
 
   bindEvents: function() {

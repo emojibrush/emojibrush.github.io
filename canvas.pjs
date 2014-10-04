@@ -6,7 +6,9 @@ var testRect = new Shape.Rectangle(new Point(rect.left, rect.top), new Size(offs
 /* Paper.js Events */
 
 function onMouseDown() {
+  brush.isDrawing = true;
   project.layers[project.layers.length] = new Layer();
+  clearTimeout(timer);
 }
 
 function onMouseDrag(event) {
@@ -24,7 +26,31 @@ function onMouseDrag(event) {
   raster.position = event.point;
 
   // Only blur if we're drawing under the palette
+  // if (testRect.contains(event.point)) {
+  // }
+}
+function onMouseUp() {
+  clearTimeout(timer);
+  timer = null;
+  setBackgroundBlurredImage()
+}
+
+var timer;
+
+function onMouseMove(event) {
   if (testRect.contains(event.point)) {
-    setBackgroundBlurredImage()
+    if ( ! timer) {
+      timer = setTimeout(function() {
+        brush.showPalette()
+      }, 400);
+    }
+  } else {
+    clearTimeout(timer);
+    timer = null;
+    brush.hidePalette()
   }
 }
+
+setTimeout(function() {
+  brush.hidePalette();
+}, 1000);
