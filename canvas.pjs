@@ -1,5 +1,13 @@
 var brush = new EmojiBrush();
 
+// add a white background layer
+var layer = new paper.Layer();
+layer.size = paper.project.view.size;
+var rectangle = new paper.Path.Rectangle(0, 0, layer.size.width, layer.size.height);
+rectangle.fillColor = 'white';
+layer.addChild(rectangle);
+paper.project.layers.unshift(layer);
+
 /* For CSS Blur (seems to work perfectly for me in Chrome) */
 var testRect = new Shape.Rectangle(new Point(rect.left, rect.top), new Size(offset.width + 30, offset.height + 15));
 

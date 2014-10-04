@@ -27,10 +27,12 @@ EmojiBrush.prototype = {
   },
 
   undo: function() {
-    paper.project.layers.pop();
-    if (paper.project) {
-      paper.project._needsUpdate = true; // forces update
-      paper.project.view.update();
+    if (paper.project.layers.length > 1) {
+      paper.project.layers.pop();
+      if (paper.project) {
+        paper.project._needsUpdate = true; // forces update
+        paper.project.view.update();
+      }
     }
 
     setBackgroundBlurredImage()
