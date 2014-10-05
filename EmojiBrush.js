@@ -62,8 +62,6 @@ EmojiBrush.prototype = {
   },
 
   hidePalette: function() {
-    if (this.shiftPressed) {
-    }
     this.paletteIsShowing = false;
     $('#palette-container').addClass('hidden');
   },
@@ -89,7 +87,7 @@ EmojiBrush.prototype = {
       var $elem = $(this);
       $elem.addClass('current');
       self.currentColor = $elem.attr('data-color');
-      $('#canvas').css('cursor', 'url(images/cursors/' + self.currentColor + '.png)');
+      $('#canvas').css('cursor', 'url("images/cursors/' + self.currentColor + '.png")');
     });
   }
 }
