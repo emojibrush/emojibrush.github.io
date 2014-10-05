@@ -13,6 +13,10 @@ body { margin: 0px; overflow: hidden; }
   -webkit-transition: -webkit-transform 0.3s;
 }
 
+#palette-container.slow {
+  -webkit-transition: -webkit-transform 3.0s;
+}
+
 #palette-container.hidden {
   -webkit-transform: translate3d(0px, -110px, 0px);
 }
@@ -37,6 +41,10 @@ body { margin: 0px; overflow: hidden; }
   opacity: 0.24;
   -webkit-transition: -webkit-transform 0.3s;
   -webkit-transform: translate3d(0px, 0px, 0px);
+}
+
+#blur-canvas.slow {
+  -webkit-transition: -webkit-transform 3.0s;
 }
 
 #palette-container.hidden #blur-canvas {

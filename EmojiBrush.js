@@ -12,6 +12,11 @@ function EmojiBrush() {
 
 EmojiBrush.prototype = {
   keyDown: function(e) {
+    if (e.shiftKey) {
+      $('#palette-container').addClass('slow');
+      $('#blur-canvas').addClass('slow');
+    }
+
     if (e.keyCode === 91) {
       this.cmdKeyPressed = true;
     }
@@ -23,6 +28,11 @@ EmojiBrush.prototype = {
   keyUp: function(e) {
     if (e.keyCode === 91) {
       this.cmdKeyPressed = false;
+    }
+
+    if (e.keyCode === 16) {
+      $('#palette-container').removeClass('slow');
+      $('#blur-canvas').removeClass('slow');
     }
   },
 
@@ -52,13 +62,15 @@ EmojiBrush.prototype = {
   },
 
   hidePalette: function() {
+    if (this.shiftPressed) {
+    }
     this.paletteIsShowing = false;
-    this.palette.setAttribute('class', 'hidden');
+    $('#palette-container').addClass('hidden');
   },
 
   showPalette: function() {
     this.paletteIsShowing = true;
-    this.palette.setAttribute('class', '');
+    $('#palette-container').removeClass('hidden');
   },
 
   bindEvents: function() {
