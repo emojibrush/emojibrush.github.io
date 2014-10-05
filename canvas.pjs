@@ -6,6 +6,7 @@ var rectangle = new paper.Path.Rectangle(0, 0, layer.size.width, layer.size.heig
 rectangle.fillColor = 'white';
 layer.addChild(rectangle);
 paper.project.layers.push(layer);
+var drewSomething = false;
 
 /* For CSS Blur (seems to work perfectly in Chrome) */
 var testRect = new Shape.Rectangle(new Point(rect.left, rect.top), new Size(offset.width + 30, offset.height + 15));
@@ -19,6 +20,7 @@ function onMouseDown() {
 }
 
 function onMouseDrag(event) {
+  drewSomething = true;
   var imageURL = brush.randomImageURL();
 
   // make sure we don't exceed the max res
@@ -38,6 +40,12 @@ function onMouseUp() {
   timer = null;
   setBackgroundBlurredImage()
   setLinkURL();
+
+  console.log('up');
+  if ( ! drewSomething) {
+    brush.undo();
+  }
+  drewSomething = false;
 }
 
 var timer;

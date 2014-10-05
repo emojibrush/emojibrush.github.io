@@ -29,10 +29,8 @@ EmojiBrush.prototype = {
   undo: function() {
     if (paper.project.layers.length > 3) {
       paper.project.layers.pop();
-      if (paper.project) {
-        paper.project._needsUpdate = true; // forces update
-        paper.project.view.update();
-      }
+      paper.project._needsUpdate = true;
+      paper.project.view.update();
     }
 
     setBackgroundBlurredImage()
