@@ -87,6 +87,7 @@ setTimeout(function() {
 
 initialTimer = setTimeout(function() {
   $('.color').first().addClass('current');
+  brush.setCurrentColor('red');
   setTimeout(function() {
     brush.hidePalette();
   }, 1000);

@@ -71,6 +71,13 @@ EmojiBrush.prototype = {
     $('#palette-container').removeClass('hidden');
   },
 
+  setCurrentColor: function(color) {
+    var $elem = $('.color[data-color='+color+']');
+    $elem.addClass('current');
+    this.currentColor = $elem.attr('data-color');
+    $('body').css('cursor', 'url(images/cursors/' + this.currentColor + '.png) 40 46, auto');
+  },
+
   bindEvents: function() {
     var self = this;
 
@@ -84,10 +91,7 @@ EmojiBrush.prototype = {
     var $links = $('.color');
     $links.bind('click', function() {
       $links.removeClass('current');
-      var $elem = $(this);
-      $elem.addClass('current');
-      self.currentColor = $elem.attr('data-color');
-      $('#canvas').css('cursor', 'url("images/cursors/' + self.currentColor + '.png")');
+      self.setCurrentColor($(this).attr('data-color'));
     });
   }
 }

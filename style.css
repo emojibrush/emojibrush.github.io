@@ -168,7 +168,6 @@ body { margin: 0px; overflow: hidden; }
 }
 
 .trashcan-icon {
-  cursor: pointer;
   background-image: url('images/trash.png');
   background-size: 22px 28px;
   background-repeat: no-repeat;
