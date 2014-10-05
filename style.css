@@ -109,16 +109,68 @@ body { margin: 0px; overflow: hidden; }
 }
 
 .download-icon {
+  background-image: url('images/download.png');
+  background-size: 22px 28px;
+  background-repeat: no-repeat;
   width: 22px;
   height: 28px;
 }
 
 .trashcan-icon {
   cursor: pointer;
+  background-image: url('images/trash.png');
+  background-size: 22px 28px;
+  background-repeat: no-repeat;
   width: 22px;
+  height: 28px;
   position: absolute;
   bottom: 22px;
   right: 28px;
+}
+
+.nobodys-logo {
+  background-image: url('images/nobodys.png');
+  background-size: 74px 74px;
+  background-repeat: no-repeat;
+  left: 8px;
+  bottom: 8px;
+  position: absolute;
+  width: 74px;
+  height: 74px;
+  opacity: 0.5;
+  -webkit-transition: opacity ease-out 0.7s;
+}
+
+.nobodys-logo:hover {
+  opacity: 1.0;
+  -webkit-transition: opacity ease-in-out 0.25s;
+
+}
+
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .nobodys-logo {
+    background-image: url('/images/nobodys_2x.png');
+    background-size: 148px 148px;
+    background-repeat: no-repeat;
+    width: 148px;
+    height: 148px;
+  }
+
+  .download-icon {
+    background-image: url('/images/download_2x.png');
+    background-size: 44px 56px;
+    background-repeat: no-repeat;
+    width: 44px;
+    height: 56px;
+  }
+
+  .trashcan-icon {
+    background-image: url('/images/trash_2x.png');
+    background-size: 44px 56px;
+    background-repeat: no-repeat;
+    width: 44px;
+    height: 56px;
+  }
 }
 
 @-webkit-keyframes colorReady {
