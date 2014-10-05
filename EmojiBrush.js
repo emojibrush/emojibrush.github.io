@@ -74,8 +74,15 @@ EmojiBrush.prototype = {
   setCurrentColor: function(color) {
     var $elem = $('.color[data-color='+color+']');
     $elem.addClass('current');
-    this.currentColor = $elem.attr('data-color');
-    $('body').css('cursor', 'url(images/cursors/' + this.currentColor + '.png) 40 46, auto');
+    this.currentColor = color;
+    $('body').css('cursor', 'url(images/cursors/' + color + '.png) 40 46, auto');
+  },
+
+  setTempColor: function(color) {
+    var $elem = $('.color[data-color='+color+']');
+    $elem.addClass('current');
+    $elem.attr('data-color');
+    $('body').css('cursor', 'url(images/cursors/' + color + '.png) 40 46, auto');
   },
 
   bindEvents: function() {
@@ -92,6 +99,15 @@ EmojiBrush.prototype = {
     $links.bind('click', function() {
       $links.removeClass('current');
       self.setCurrentColor($(this).attr('data-color'));
+    });
+
+    $links.bind('mouseenter', function() {
+      self.setTempColor($(this).attr('data-color'));
+    });
+
+    $('#palette-container').bind('mouseleave', function() {
+      console.log(self.currentColor);
+      self.setCurrentColor(self.currentColor);
     });
   }
 }
