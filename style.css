@@ -24,6 +24,7 @@ body { margin: 0px; overflow: hidden; }
 #palette {
   position: relative;
   display: inline-block;
+  overflow: hidden;
   background-color: #ECEDEF;
   padding: 30px;
   border-bottom-left-radius: 10px;
