@@ -38,6 +38,13 @@ EmojiBrush.prototype = {
     setBackgroundBlurredImage()
   },
 
+  clear: function() {
+    paper.project.layers.splice(3);
+    paper.project._needsUpdate = true; // forces update
+    paper.project.view.update();
+    setBackgroundBlurredImage()
+  },
+
   randomImageURL: function() {
     var images = colors[this.currentColor];
     var random = Math.floor(Math.random() * images.length);

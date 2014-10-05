@@ -106,3 +106,11 @@ body { margin: 0px; overflow: hidden; }
   width: 20px;
   height: 20px;
 }
+
+.trashcan-icon {
+  cursor: pointer;
+  width: 20px;
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+}

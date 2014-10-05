@@ -1,4 +1,3 @@
-var brush = new EmojiBrush();
 
 // add a white background layer
 var layer = new paper.Layer();

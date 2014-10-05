@@ -1,3 +1,5 @@
+var brush = new EmojiBrush();
+
 var palette = document.getElementById('palette');
 var background = document.getElementById('blur-canvas');
 var offset = palette.getBoundingClientRect();
@@ -27,3 +29,7 @@ function setLinkURL() {
   var canvas = document.getElementById('canvas');
   document.getElementById('download').setAttribute('href', canvas.toDataURL());
 }
+
+document.getElementById('trashcan').addEventListener('click', function() {
+  brush.clear();
+}, false);
