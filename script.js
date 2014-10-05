@@ -36,6 +36,11 @@ $('#trashcan').bind('click', function() {
 
 $(document).ready(function() {
   $('.color').easyAudio({
-    src: 'audio/pop'
+    src: 'audio/pop',
+    event: 'click'
+  });
+  $('.color').easyAudio({
+    src: 'audio/tick',
+    event: 'mouseenter'
   });
 });
