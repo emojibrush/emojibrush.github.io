@@ -74,7 +74,7 @@ EmojiBrush.prototype = {
       link.addEventListener('click', function(e) {
         links.forEach(function(link) { link.setAttribute('class', 'color ready') });
         var elem = e.currentTarget;
-        elem.setAttribute('class', 'color current');
+        elem.setAttribute('class', 'color current ready');
         self.currentColor = elem.getAttribute('data-color');
       }, false);
     });

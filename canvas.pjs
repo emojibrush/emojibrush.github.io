@@ -64,11 +64,12 @@ function onMouseMove(event) {
 function doThat(link, i) {
   setTimeout(function() {
     link.setAttribute('class', 'color ready');
-  }, i * 60);
+  }, i * 20);
 }
 
 var links = document.getElementsByClassName('color');
 setTimeout(function() {
+  document.getElementById('palette').style.opacity = 1;
   for (var i = links.length - 1; i >= 0; i--) {
     doThat(links[i], i);
   }
@@ -79,4 +80,4 @@ initialTimer = setTimeout(function() {
   setTimeout(function() {
     brush.hidePalette();
   }, 1000);
-}, 1300);
+}, 1700);
