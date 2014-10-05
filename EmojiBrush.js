@@ -75,14 +75,14 @@ EmojiBrush.prototype = {
     var $elem = $('.color[data-color='+color+']');
     $elem.addClass('current');
     this.currentColor = color;
-    $('body').css('cursor', 'url(images/cursors/' + color + '.png) 40 46, auto');
+    $('body').css('cursor', 'url(images/cursors/' + color + '.png) 10 17, auto');
   },
 
   setTempColor: function(color) {
     var $elem = $('.color[data-color='+color+']');
     $elem.addClass('current');
     $elem.attr('data-color');
-    $('body').css('cursor', 'url(images/cursors/' + color + '.png) 40 46, auto');
+    $('body').css('cursor', 'url(images/cursors/' + color + '.png) 10 17, auto');
   },
 
   bindEvents: function() {
