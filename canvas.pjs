@@ -70,7 +70,10 @@ function onMouseMove(event) {
 
 function doThat($link, i) {
   setTimeout(function() {
-    $link.attr('class', 'color');
+    $link.attr('class', 'color ready');
+    setTimeout(function() {
+      $link.removeClass('ready');
+    }, 400);
   }, i * 40);
 }
 
