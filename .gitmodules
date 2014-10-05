@@ -1,0 +1,3 @@
+[submodule "easy-audio"]
+	path = easy-audio
+	url = https://github.com/mikekavouras/easy-audio.git
