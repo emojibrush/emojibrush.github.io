@@ -64,17 +64,20 @@ EmojiBrush.prototype = {
   bindEvents: function() {
     var self = this;
 
-    document.addEventListener('keydown', function(event) {self.keyDown(event);}, false);
-    document.addEventListener('keyup', function(event) {self.keyUp(event);}, false);
+    $(document).bind('keydown', function(e) {
+      self.keyDown(e);
+    });
+    $(document).bind('keyup', function(e) {
+      self.keyup(e);
+    });
 
-    var links = Array.prototype.slice.call(document.getElementsByClassName('color'));
-    links.forEach(function(link) {
-      link.addEventListener('click', function(e) {
-        links.forEach(function(link) { link.setAttribute('class', 'color') });
-        var elem = e.currentTarget;
-        elem.setAttribute('class', 'color current');
-        self.currentColor = elem.getAttribute('data-color');
-      }, false);
+    var $links = $('.color');
+    $links.bind('click', function() {
+      $links.removeClass('current');
+      var $elem = $(this);
+      $elem.addClass('current');
+      self.currentColor = $elem.attr('data-color');
+      $('#canvas').css('cursor', 'url(images/cursors/' + self.currentColor + '.png)');
     });
   }
 }
