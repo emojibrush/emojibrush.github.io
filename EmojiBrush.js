@@ -68,7 +68,7 @@ EmojiBrush.prototype = {
       self.keyDown(e);
     });
     $(document).bind('keyup', function(e) {
-      self.keyup(e);
+      self.keyUp(e);
     });
 
     var $links = $('.color');
