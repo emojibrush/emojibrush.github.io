@@ -31,7 +31,12 @@ function setLinkURL() {
 }
 
 $('#trashcan').bind('click', function() {
-  brush.clear();
+  var d = confirm("Are you sure you want to delete?");
+  if (d == true) {
+    x = brush.clear();
+  } else {
+    blink;
+  }
 });
 
 $(document).ready(function() {
