@@ -147,7 +147,9 @@ body { margin: 0px; overflow: hidden; }
 
 }
 
-@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), 
+only screen and (min--moz-device-pixel-ratio: 1.5), 
+only screen and (min-resolution: 240dpi) {
   .nobodys-logo {
     background-image: url('/images/nobodys_2x.png');
     background-size: 148px 148px;
