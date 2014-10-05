@@ -34,10 +34,8 @@ $('#trashcan').bind('click', function() {
   brush.clear();
 });
 
-/*
 $(document).ready(function() {
   $('.color').easyAudio({
     src: 'audio/pop'
   });
 });
-*/
