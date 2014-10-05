@@ -61,6 +61,22 @@ function onMouseMove(event) {
   }
 }
 
+function doThat(link, i) {
+  setTimeout(function() {
+    link.setAttribute('class', 'color ready');
+  }, i * 60);
+}
+
+var links = document.getElementsByClassName('color');
+setTimeout(function() {
+  for (var i = links.length - 1; i >= 0; i--) {
+    doThat(links[i], i);
+  }
+}, 200);
+
 initialTimer = setTimeout(function() {
-  brush.hidePalette();
-}, 1000);
+  document.getElementsByClassName('color')[0].setAttribute('class', 'color current ready');
+  setTimeout(function() {
+    brush.hidePalette();
+  }, 1000);
+}, 1300);
