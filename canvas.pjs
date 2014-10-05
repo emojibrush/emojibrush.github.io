@@ -7,7 +7,7 @@ rectangle.fillColor = 'white';
 layer.addChild(rectangle);
 paper.project.layers.push(layer);
 
-/* For CSS Blur (seems to work perfectly for me in Chrome) */
+/* For CSS Blur (seems to work perfectly in Chrome) */
 var testRect = new Shape.Rectangle(new Point(rect.left, rect.top), new Size(offset.width + 30, offset.height + 15));
 
 /* Paper.js Events */
@@ -64,7 +64,7 @@ function onMouseMove(event) {
 function doThat(link, i) {
   setTimeout(function() {
     link.setAttribute('class', 'color ready');
-  }, i * 20);
+  }, i * 40);
 }
 
 var links = document.getElementsByClassName('color');
@@ -76,7 +76,7 @@ setTimeout(function() {
 }, 200);
 
 initialTimer = setTimeout(function() {
-  document.getElementsByClassName('color')[0].setAttribute('class', 'color current ready');
+  document.getElementsByClassName('color')[0].setAttribute('class', 'color current');
   setTimeout(function() {
     brush.hidePalette();
   }, 1000);

@@ -72,9 +72,9 @@ EmojiBrush.prototype = {
     var links = Array.prototype.slice.call(document.getElementsByClassName('color'));
     links.forEach(function(link) {
       link.addEventListener('click', function(e) {
-        links.forEach(function(link) { link.setAttribute('class', 'color ready') });
+        links.forEach(function(link) { link.setAttribute('class', 'color') });
         var elem = e.currentTarget;
-        elem.setAttribute('class', 'color current ready');
+        elem.setAttribute('class', 'color current');
         self.currentColor = elem.getAttribute('data-color');
       }, false);
     });

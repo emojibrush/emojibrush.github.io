@@ -26,10 +26,18 @@ function takeScreenShot() {
 }
 
 function setLinkURL() {
-  var canvas = document.getElementById('canvas');
-  document.getElementById('download').setAttribute('href', canvas.toDataURL());
+  var canvas = $('#canvas')[0];
+  $('#download').attr('href', canvas.toDataURL());
 }
 
-document.getElementById('trashcan').addEventListener('click', function() {
+$('#trashcan').bind('click', function() {
   brush.clear();
-}, false);
+});
+
+/*
+$(document).ready(function() {
+  $('.color').easyAudio({
+    src: 'audio/pop'
+  });
+});
+*/
