@@ -43,20 +43,4 @@ $(document).ready(function() {
     src: 'audio/tick',
     event: 'mouseenter'
   });
-  $('.color[data-color="red"]').easyAudio({
-    src: 'audio/do',
-    event: 'mouseenter'
-  });
-  $('.color[data-color="red-orange"]').easyAudio({
-    src: 'audio/re',
-    event: 'mouseenter'
-  });
-  $('.color[data-color="orange"]').easyAudio({
-    src: 'audio/mi',
-    event: 'mouseenter'
-  });
-  $('.color[data-color="yellow-orange"]').easyAudio({
-    src: 'audio/fa',
-    event: 'mouseenter'
-  });
 });
