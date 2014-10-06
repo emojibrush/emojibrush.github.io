@@ -38,8 +38,8 @@ function onMouseDrag(event) {
 
   if ( ! hasDrawn) {
     hasDrawn = true;
-    brush.hidePalette();
   }
+  brush.hidePalette();
 }
 
 function onMouseUp() {
@@ -69,30 +69,9 @@ function onMouseMove(event) {
   } else {
     clearTimeout(timer);
     timer = null;
-    if ( ! initialTimer) {
+    if ( ! initialTimer && notIntro && hasDrawn) {
       brush.hidePalette()
     }
   }
 }
 
-function doThat($link, i) {
-  setTimeout(function() {
-    $link.css('opacity', '1');
-  }, i * 20);
-}
-
-var $links = $('.color');
-setTimeout(function() {
-  $('#palette').css('opacity', '1');
-  $links.each(function(idx) {
-    doThat($(this), idx);
-  });
-  setTimeout(function() {
-    $('#palette-tip-container').fadeIn('fast');
-  }, 800);
-}, 200);
-
-initialTimer = setTimeout(function() {
-  $('.color').first().addClass('current').trigger('click');
-  brush.setCurrentColor('red');
-}, 1700);

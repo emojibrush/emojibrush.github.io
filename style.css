@@ -294,6 +294,7 @@ a.nobodys-link:hover {
   background-repeat: no-repeat;
   width: 22px;
   height: 28px;
+  cursor: pointer;
 }
 
 .trashcan-icon {
@@ -305,6 +306,7 @@ a.nobodys-link:hover {
   position: absolute;
   bottom: 22px;
   right: 28px;
+  cursor: pointer;
 }
 
 .nobodys-logo {

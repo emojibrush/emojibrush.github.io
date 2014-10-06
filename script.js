@@ -1,3 +1,5 @@
+var clickEv = 'ontouchstart' in document ? 'touchend' : 'click'; 
+var notIntro = false;
 var brush = new EmojiBrush();
 
 var palette = document.getElementById('palette');
@@ -39,6 +41,15 @@ $('#trashcan').bind('click', function() {
   }
 });
 
+function doThat($link, i) {
+  setTimeout(function() {
+    $link.css('opacity', '1');
+  }, i * 20);
+}
+
+var $links = $('.color');
+
+
 $(document).ready(function() {
   $('.color').easyAudio({
     src: 'audio/pop',
@@ -48,6 +59,28 @@ $(document).ready(function() {
   $('.color').easyAudio({
     src: 'audio/tick',
     event: 'mouseenter'
+  });
+
+  $('#draw').bind(clickEv, function() {
+    notIntro = true;
+    $('#intro').fadeOut(function() {
+
+      setTimeout(function() {
+        $('#palette').css('opacity', '1');
+        $links.each(function(idx) {
+          doThat($(this), idx);
+        });
+        setTimeout(function() {
+         $('#palette-tip-container').fadeIn('fast');
+        }, 800);
+      }, 200);
+
+      initialTimer = setTimeout(function() {
+        $('.color').first().addClass('current').trigger('click');
+        brush.setCurrentColor('red');
+      }, 1700);
+    });
+
   });
 
 });

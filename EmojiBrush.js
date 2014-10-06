@@ -6,6 +6,7 @@ function EmojiBrush() {
   this.paletteIsShowing = true;
   this.isDrawing = false;
   this.url;
+  this.clickEvent = 'ontouchstart' in document ? 'touchend' : 'click';
 
   this.bindEvents();
 }
@@ -95,7 +96,7 @@ EmojiBrush.prototype = {
     });
 
     var $links = $('.color');
-    $links.bind('click', function() {
+    $links.bind(self.clickEvent, function() {
       $links.removeClass('current');
       self.setCurrentColor($(this).attr('data-color'));
     });
@@ -106,6 +107,10 @@ EmojiBrush.prototype = {
 
     $('#palette-container').bind('mouseleave', function() {
       self.setCurrentColor(self.currentColor);
+    });
+
+    $('#palette-tip').bind(self.clickEvent, function() {
+      self.showPalette();
     });
   }
 }
