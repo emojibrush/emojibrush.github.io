@@ -60,8 +60,6 @@ function onMouseUp() {
     brush.undo();
   }
   drewSomething = false;
-
-  console.log('here');
 }
 
 var timer;
