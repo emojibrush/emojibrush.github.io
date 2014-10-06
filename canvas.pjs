@@ -7,6 +7,8 @@ rectangle.fillColor = 'white';
 layer.addChild(rectangle);
 paper.project.layers.push(layer);
 var drewSomething = false;
+var hasDrawn = false;
+
 
 /* For CSS Blur (seems to work perfectly in Chrome) */
 var testRect = new Shape.Rectangle(new Point(rect.left, rect.top), new Size(offset.width + 30, offset.height + 15));
@@ -33,6 +35,11 @@ function onMouseDrag(event) {
   }
   raster.source = url;
   raster.position = event.point;
+
+  if ( ! hasDrawn) {
+    hasDrawn = true;
+    brush.hidePalette();
+  }
 }
 
 function onMouseUp() {
@@ -70,11 +77,8 @@ function onMouseMove(event) {
 
 function doThat($link, i) {
   setTimeout(function() {
-    $link.attr('class', 'color ready');
-    setTimeout(function() {
-      $link.removeClass('ready');
-    }, 400);
-  }, i * 40);
+    $link.css('opacity', '1');
+  }, i * 20);
 }
 
 var $links = $('.color');
@@ -83,12 +87,12 @@ setTimeout(function() {
   $links.each(function(idx) {
     doThat($(this), idx);
   });
+  setTimeout(function() {
+    $('#palette-tip-container').fadeIn('fast');
+  }, 800);
 }, 200);
 
 initialTimer = setTimeout(function() {
-  $('.color').first().addClass('current');
+  $('.color').first().addClass('current').trigger('click');
   brush.setCurrentColor('red');
-  setTimeout(function() {
-    brush.hidePalette();
-  }, 1000);
 }, 1700);
