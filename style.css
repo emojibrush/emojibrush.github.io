@@ -74,13 +74,24 @@ html, body {
   font-weight: 400;
 }
 
+.chrome-icon {
+  background-image: url('images/chrome-icon.png');
+  background-size: 18px 18px;
+  height: 18px;
+  width: 18px;
+  display: inline-block;
+  background-repeat: no-repeat;
+  top: 4px;
+  position: relative;
+}
+
 a.btn-draw {
   border-radius: 3px;
   background: #F4C48A ;
   -moz-box-shadow: 0px 1px 1px 0px #C69963 ;
   box-shadow:  0px 1px 1px 0px #C69963 ;
   font-family: 'Montserrat', sans-serif;;
-  font-size: 15px;
+  font-size: 16px;
   color: #232930 ;
   line-height: 19px;
   padding: 18px 35px;
@@ -98,36 +109,42 @@ a.btn-draw:hover {
   font-family: CourierNewPSMT;
   font-size: 15px;
   font-weight: 300;
-  color: #D5D8DB;
+  color: #C1C4C7;
 }
 
 a.nobodys-link:hover {
-  color: #BDBFC2;
+  color: #787C80;
 }
 
 .main h4 {
   font-family: CourierNewPSMT;
   font-size: 15px;
   font-weight: 300;
-  color: #9B9FA4;
+  color: #919599;
   margin-bottom: 52px;
 }
 
 .attribution {
-  position: absolute;
-  bottom: 16px;
-  text-align: center;
   font-family: CourierNewPSMT;
-  width: 100%;
+  position: absolute;
+  right: 32px;
+  bottom: 16px;
+  font-size: 13px;
+  color: #C1C4C7;
 }
 
-.attribution p {
+.nobodys-logo {
   font-family: CourierNewPSMT;
-  font-size: 12px;
-  display: inline-block;
-  position: relative;
-  text-align: center;
-  color: #D5D8DB;
+  font-size: 13px;
+  line-height: 14px;
+  left: 32px;
+  bottom: 16px;
+  position: absolute;
+  color: #C1C4C7;
+}
+
+.nobodys-logo a {
+  color: #C1C4C7;
 }
 
 #palette-container {
@@ -317,27 +334,6 @@ a.nobodys-link:hover {
   cursor: pointer;
 }
 
-.nobodys-logo {
-  font-family: CourierNewPSMT;
-  font-size: 12px;
-  line-height: 14px;
-  left: 32px;
-  bottom: 16px;
-  position: absolute;
-  color: #D5D8DB;
-}
-
-.nobodys-logo a {
-  color: #D5D8DB;
-  -webkit-transition: opacity ease 0.7s;
-}
-
-.nobodys-logo a:hover {
-  opacity: 1.0;
-  color: #BDBFC2;
-  -webkit-transition: opacity ease 0.25s;
-}
-
 @-webkit-keyframes colorGrow {
   0% { -webkit-transform: scale(1.0); }
   25% { -webkit-transform: scale(1.30); }
@@ -383,6 +379,10 @@ a.nobodys-link:hover {
   .emoji {
     background-image: url('images/emoji-span_2x.png');
   }
+
+  .chrome-icon {
+    background-image: url('images/chrome-icon_2x.png');
+  }
 }
 
 @media screen and (max-height: 1024px) {
@@ -406,6 +406,9 @@ a.nobodys-link:hover {
 @media screen and (max-height: 776px) {
   .brush-artwork {
     background-size: 60%;
+  }
+  .main {
+    padding-top: 100px;
   }
 }
 
