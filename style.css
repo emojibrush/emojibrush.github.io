@@ -17,6 +17,7 @@ body { margin: 0px; overflow: hidden; }
   -moz-transition: -moz-transform 0.3s;
   -o-transition: -o-transform 0.3s;
   transition: transform 0.3s;
+  z-index: 2;
 }
 
 #palette-container.slow {
@@ -47,6 +48,27 @@ body { margin: 0px; overflow: hidden; }
   -moz-transition: opacity 2.0s;
   -o-transition: opacity 2.0s;
   transition: opacity 2.0s;
+}
+
+#palette-tip-container {
+  position: absolute;
+  text-align: center;
+  width: 100%;
+  min-width: 74px;
+  top: -37px;
+  left: 0px;
+  background-color: transparent;
+  overflow: hidden;
+}
+
+#palette-tip {
+  border-radius: 37px;
+  background-color: #ECEDEF;
+  display: inline-block;
+  width: 74px;
+  height: 74px;
+  z-index: 1;
+  opacity: 0.8;
 }
 
 #blur-canvas {
