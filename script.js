@@ -1,4 +1,4 @@
-var clickEv = 'ontouchstart' in document ? 'touchend' : 'click'; 
+var clickEv = 'ontouchstart' in document ? 'touchend' : 'click';
 var notIntro = false;
 var brush = new EmojiBrush();
 
@@ -51,6 +51,10 @@ var $links = $('.color');
 
 
 $(document).ready(function() {
+  $('#download').bind('click', function() {
+    console.log('here');
+  });
+
   $('.color').easyAudio({
     src: 'audio/pop',
     event: 'click'
