@@ -44,6 +44,7 @@ $(document).ready(function() {
     src: 'audio/pop',
     event: 'click'
   });
+
   $('.color').easyAudio({
     src: 'audio/tick',
     event: 'mouseenter'

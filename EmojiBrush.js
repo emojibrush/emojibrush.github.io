@@ -105,7 +105,6 @@ EmojiBrush.prototype = {
     });
 
     $('#palette-container').bind('mouseleave', function() {
-      console.log(self.currentColor);
       self.setCurrentColor(self.currentColor);
     });
   }
