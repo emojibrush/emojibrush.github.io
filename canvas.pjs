@@ -1,3 +1,5 @@
+var drewSomething = false;
+var hasDrawn = false;
 
 // add a white background layer
 var layer = new paper.Layer();
@@ -6,9 +8,6 @@ var rectangle = new paper.Path.Rectangle(0, 0, layer.size.width, layer.size.heig
 rectangle.fillColor = 'white';
 layer.addChild(rectangle);
 paper.project.layers.push(layer);
-var drewSomething = false;
-var hasDrawn = false;
-
 
 /* For CSS Blur (seems to work perfectly in Chrome) */
 var testRect = new Shape.Rectangle(new Point(rect.left, rect.top), new Size(offset.width + 30, offset.height + 15));
@@ -22,6 +21,15 @@ function onMouseDown() {
 }
 
 function onMouseDrag(event) {
+  var tooLeft = event.point.x + 1 <= 0;
+  var tooRight = event.point.x - 1 >= paper.project.view.size.width;
+  var tooUp = event.point.y + 1 <= 0;
+  var tooDown = event.point.y - 1 >= paper.project.view.size.height;
+
+  if (tooLeft || tooRight || tooUp || tooDown) {
+    return;
+  };
+
   drewSomething = true;
   var imageURL = brush.randomImageURL();
 
@@ -33,7 +41,7 @@ function onMouseDrag(event) {
     this.size = new Size(radius, radius);
     this.opacity = 1;
   }
-  raster.source = url;
+  raster.source = imageURL;
   raster.position = event.point;
 
   if ( ! hasDrawn) {
@@ -52,6 +60,8 @@ function onMouseUp() {
     brush.undo();
   }
   drewSomething = false;
+
+  console.log('here');
 }
 
 var timer;
@@ -74,4 +84,3 @@ function onMouseMove(event) {
     }
   }
 }
-
