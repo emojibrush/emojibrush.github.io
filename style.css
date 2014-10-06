@@ -405,9 +405,20 @@ a.nobodys-link:hover {
 
 @media screen and (max-height: 776px) {
   .brush-artwork {
+    background-size: 60%;
+  }
+}
+
+@media screen and (max-height: 710px) {
+  .brush-artwork {
+    background-size: 50%;
+  }
+}
+
+@media screen and (max-height: 600px) {
+  .brush-artwork {
     display: none;
   }
-
   .main {
     padding-top: 0px;
   }
