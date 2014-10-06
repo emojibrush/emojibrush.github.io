@@ -39,6 +39,7 @@ function onMouseDrag(event) {
   raster.opacity = 0;
   raster.onLoad = function() {
     this.size = new Size(radius, radius);
+    this.rotation = Math.random() * 360;
     this.opacity = 1;
   }
   raster.source = imageURL;
@@ -56,8 +57,18 @@ function onMouseUp() {
   setBackgroundBlurredImage()
   setLinkURL();
 
+  console.log(project.layers.length);
   if ( ! drewSomething) {
     brush.undo();
+  } else {
+    if (project.layers.length > 10) {
+      var raster = new Raster();
+      raster.size = new Size(view.size.width, view.size.height);
+      raster.position = new Point(view.size.width / 2, view.size.height / 2);
+      raster.source = $('#canvas')[0].toDataURL();
+      project.layers[2] = project.layers[project.layers.length - 1];
+      project.layers.splice(3);
+    }
   }
   drewSomething = false;
 }

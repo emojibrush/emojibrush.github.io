@@ -13,14 +13,10 @@ function EmojiBrush() {
 
 EmojiBrush.prototype = {
   keyDown: function(e) {
-    if (e.shiftKey) {
-      $('#palette-container').addClass('slow');
-      $('#blur-canvas').addClass('slow');
-    }
-
-    if (e.keyCode === 91) {
+    if (e.keyCode === 91 || e.ctrlKey) {
       this.cmdKeyPressed = true;
     }
+
     if (e.keyCode === 90 && this.cmdKeyPressed) {
       this.undo();
     }
@@ -29,11 +25,6 @@ EmojiBrush.prototype = {
   keyUp: function(e) {
     if (e.keyCode === 91) {
       this.cmdKeyPressed = false;
-    }
-
-    if (e.keyCode === 16) {
-      $('#palette-container').removeClass('slow');
-      $('#blur-canvas').removeClass('slow');
     }
   },
 
