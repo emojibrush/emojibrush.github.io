@@ -52,6 +52,13 @@ html, body {
   padding-top: 180px;
 }
 
+.emoji {
+    background-image: url('images/emoji-span.png');
+    color: transparent;
+    padding-top: 2px;
+    background-size: 94px 42px;
+  }
+
 .main h1 {
   font-family: 'Montserrat', sans-serif;
   font-size: 58px;
@@ -278,6 +285,7 @@ a.nobodys-link:hover {
 .color[data-color="red-violet"] { background: #D2117B; }
 .color[data-color="white"] { background: #F4F4F4; width: 45px; height: 45px; border: 1px #ccc solid;  }
 .color[data-color="gray"] { background: #A7AAA9; }
+.color[data-color="brown"] { background: #86542B; }
 .color[data-color="black"] { background: #232930; }
 
 #download {
@@ -354,31 +362,26 @@ a.nobodys-link:hover {
   100% { transform: scale(1.2); }
 }
 
-@media only screen and (-webkit-min-device-pixel-ratio: 1.5),
-only screen and (min--moz-device-pixel-ratio: 1.5),
-only screen and (min-resolution: 240dpi) {
-  .nobodys-logo {
-    background-image: url('images/nobodys_2x.png');
-    background-size: 148px 148px;
-    background-repeat: no-repeat;
-    width: 148px;
-    height: 148px;
-  }
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min--moz-device-pixel-ratio: 1.5), only screen and (min-resolution: 240dpi) {
 
   .download-icon {
     background-image: url('images/download_2x.png');
-    background-size: 44px 56px;
+    background-size: 22px 28px;
     background-repeat: no-repeat;
-    width: 44px;
-    height: 56px;
+    width: 22px;
+    height: 28px;
   }
 
   .trashcan-icon {
     background-image: url('images/trash_2x.png');
-    background-size: 44px 56px;
+    background-size: 22px 28px;
     background-repeat: no-repeat;
-    width: 44px;
-    height: 56px;
+    width: 22px;
+    height: 28px;
+  }
+
+  .emoji {
+    background-image: url('images/emoji-span_2x.png');
   }
 }
 
@@ -404,6 +407,7 @@ only screen and (min-resolution: 240dpi) {
   .brush-artwork {
     display: none;
   }
+
   .main {
     padding-top: 0px;
   }

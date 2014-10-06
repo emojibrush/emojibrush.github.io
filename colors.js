@@ -13,5 +13,6 @@ var colors = {
   'red-violet': [ "168.png", "211.png", "214.png", "281.png", "299.png", "415.png", "426.png", "448.png", "505.png", "508.png", "510.png", "517.png", "174.png", "212.png", "227.png", "289.png", "385.png", "421.png", "427.png", "449.png", "507.png", "509.png", "516.png", "767.png" ],
   'white': [ "245.png", "246.png", "280.png", "36.png", "361.png", "367.png", "376.png", "39.png", "41.png", "44.png", "48.png", "655.png", "73.png", "76.png", "77.png", "90.png" ],
   'gray': [ "106.png", "110.png", "112.png", "12.png", "125.png", "16.png", "272.png", "673.png", "675.png", "677.png", "679.png", "681.png", "683.png", "685.png", "687.png", "689.png", "691.png", "693.png", "695.png", "81.png", "841.png", "96.png", "107.png", "111.png", "114.png", "122.png", "13.png", "26.png", "672.png", "674.png", "676.png", "678.png", "680.png", "682.png", "684.png", "686.png", "688.png", "690.png", "692.png", "694.png", "75.png", "838.png", "842.png", "97.png"],
+  'brown': [ "527.png" ],
   'black': [ "121.png", "198.png", "35.png", "40.png", "42.png", "46.png", "63.png", "64.png", "74.png", "95.png", ]
 }
