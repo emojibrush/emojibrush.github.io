@@ -1,5 +1,128 @@
 body { margin: 0px; overflow: hidden; }
 
+html, body {
+  width: 100%;
+  height: 100%;
+}
+
+.display-table {
+  display: table;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.display-table-cell {
+  display: table-cell;
+  width: 100%;
+  height: 100%;
+  vertical-align: middle;
+}
+
+#intro {
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  z-index: 3;
+}
+
+.brush-artwork {
+  text-align: center;
+  background-image: url('/images/emoji-brush.png');
+  background-size: 416px 388px;
+  height: 388px;
+  max-width: 416px;
+  width: 100%;
+  margin: 0 auto;
+  background-repeat: no-repeat;
+  background-position: center top;
+}
+
+.main {
+  max-width: 416px;
+  text-align: center;
+  margin: 0 auto;
+  cursor: auto;
+  box-sizing: border-box;
+  padding-top: 180px;
+}
+
+.main h1 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 58px;
+  margin: 0;
+  margin-bottom: 8px;
+}
+
+.main h2 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 30px;
+  margin: 0;
+  margin-bottom: 58px;
+  font-weight: 400;
+}
+
+a.btn-draw {
+  border-radius: 3px;
+  background: #F4C48A ;
+  -moz-box-shadow: 0px 1px 1px 0px #C69963 ;
+  box-shadow:  0px 1px 1px 0px #C69963 ;
+  font-family: 'Montserrat', sans-serif;;
+  font-size: 15px;
+  color: #232930 ;
+  line-height: 19px;
+  padding: 18px 35px;
+  display: inline-block;
+  margin-bottom: 52px;
+  cursor: pointer;
+}
+
+a.btn-draw:hover {
+  background: #E7B578;
+  cursor: pointer;
+}
+
+.main p, a.nobodys-link {
+  font-family: CourierNewPSMT;
+  font-size: 15px;
+  font-weight: 300;
+  color: #D5D8DB;
+}
+
+a.nobodys-link:hover {
+  color: #BDBFC2;
+}
+
+.main h4 {
+  font-family: CourierNewPSMT;
+  font-size: 15px;
+  font-weight: 300;
+  color: #9B9FA4;
+  margin-bottom: 52px;
+}
+
+.attribution {
+  position: absolute;
+  bottom: 16px;
+  text-align: center;
+  font-family: CourierNewPSMT;
+  width: 100%;
+}
+
+.attribution p {
+  font-family: CourierNewPSMT;
+  font-size: 12px;
+  display: inline-block;
+  position: relative;
+  text-align: center;
+  color: #D5D8DB;
+}
+
 #palette-container {
   text-align: center;
   background-color: transparent;
@@ -185,22 +308,48 @@ body { margin: 0px; overflow: hidden; }
 }
 
 .nobodys-logo {
-  background-image: url('images/nobodys.png');
-  background-size: 74px 74px;
-  background-repeat: no-repeat;
-  left: 8px;
-  bottom: 8px;
+  font-family: CourierNewPSMT;
+  font-size: 12px;
+  line-height: 14px;
+  left: 32px;
+  bottom: 16px;
   position: absolute;
-  width: 74px;
-  height: 74px;
-  opacity: 0.5;
-  -webkit-transition: opacity ease-out 0.7s;
+  color: #D5D8DB;
 }
 
-.nobodys-logo:hover {
-  opacity: 1.0;
-  -webkit-transition: opacity ease-in-out 0.25s;
+.nobodys-logo a {
+  color: #D5D8DB;
+  -webkit-transition: opacity ease 0.7s;
+}
 
+.nobodys-logo a:hover {
+  opacity: 1.0;
+  color: #BDBFC2;
+  -webkit-transition: opacity ease 0.25s;
+}
+
+@-webkit-keyframes colorGrow {
+  0% { -webkit-transform: scale(1.0); }
+  25% { -webkit-transform: scale(1.30); }
+  50% { -webkit-transform: scale(1.20); }
+  75% { -webkit-transform: scale (1.0);}
+  100% { -webkit-transform: scale(1.2); }
+}
+
+@-moz-keyframes colorGrow {
+  0% { -moz-transform: scale(1.0); }
+  25% { -moz-transform: scale(1.30); }
+  50% { -moz-transform: scale(1.20); }
+  75% { -moz-transform: scale (1.0);}
+  100% { -webkit-transform: scale(1.2); }
+}
+
+@keyframes colorGrow {
+  0% { transform: scale(1.0); }
+  25% { transform: scale(1.30); }
+  50% { transform: scale(1.20); }
+  75% { transform: scale (1.0);}
+  100% { transform: scale(1.2); }
 }
 
 @media only screen and (-webkit-min-device-pixel-ratio: 1.5),
@@ -231,26 +380,29 @@ only screen and (min-resolution: 240dpi) {
   }
 }
 
-@-webkit-keyframes colorGrow {
-  0% { -webkit-transform: scale(1.0); }
-  25% { -webkit-transform: scale(1.30); }
-  50% { -webkit-transform: scale(1.20); }
-  75% { -webkit-transform: scale (1.0);}
-  100% { -webkit-transform: scale(1.2); }
+@media screen and (max-height: 1024px) {
+  .brush-artwork {
+    background-size: 90%;
+  }
 }
 
-@-moz-keyframes colorGrow {
-  0% { -moz-transform: scale(1.0); }
-  25% { -moz-transform: scale(1.30); }
-  50% { -moz-transform: scale(1.20); }
-  75% { -moz-transform: scale (1.0);}
-  100% { -webkit-transform: scale(1.2); }
+@media screen and (max-height: 950px) {
+  .brush-artwork {
+    background-size: 80%;
+  }
 }
 
-@keyframes colorGrow {
-  0% { transform: scale(1.0); }
-  25% { transform: scale(1.30); }
-  50% { transform: scale(1.20); }
-  75% { transform: scale (1.0);}
-  100% { transform: scale(1.2); }
+@media screen and (max-height: 870px) {
+  .brush-artwork {
+    background-size: 70%;
+  }
+}
+
+@media screen and (max-height: 776px) {
+  .brush-artwork {
+    display: none;
+  }
+  .main {
+    padding-top: 0px;
+  }
 }

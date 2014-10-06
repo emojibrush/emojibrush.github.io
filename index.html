@@ -12,6 +12,24 @@
 
 <body>
 
+  <div id="intro">
+    <div class="brush-artwork"></div>
+    <div class="display-table">
+      <div class="display-table-cell">
+        <div class="main">
+          <h1>Emoji Brush</h1>
+          <h2>Draw with emoji.</h2>
+          <a id="draw" class="btn-draw">DRAW!</a>
+          <h4>(If you want to share your creation,<br> download the image from the lower right)</h4>
+          <p>Created by <a class="nobodys-link" href="http://nobodysofnyc.com/">Nobodys</a></p>
+        </div>
+      </div>
+    </div>
+    <div class="attribution">
+      <p>Emoji artwork Copyright &copy; 2012 Apple Inc. All rights reserved.</p>
+    </div>
+  </div>
+
   <div id="palette-container">
     <div id="palette">
       <canvas id="blur-canvas" width="947" height="107"></canvas>
@@ -48,7 +66,7 @@
 
   <div id="trashcan" class="trashcan-icon"></div>
 
-  <a href="http://nobodysofnyc.com/" id="nobodys" class="nobodys-logo"></a>
+  <p class="nobodys-logo">Created by <a href="http://nobodysofnyc.com/" id="nobodys">Nobodys</a></p>
 
   <script src="canvas2image.js"></script>
   <script src="Base64Binary.js"></script>
