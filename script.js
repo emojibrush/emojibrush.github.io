@@ -52,7 +52,7 @@ var $links = $('.color');
 
 $(document).ready(function() {
   $('#download').bind('click', function() {
-    console.log('here');
+      ga('send', 'event', 'download', 'drawing', $(this).attr('src'));
   });
 
   $('.color').easyAudio({
@@ -85,6 +85,7 @@ $(document).ready(function() {
       }, 1700);
     });
 
+    ga('send', 'event', 'drawing', 'started');
   });
 
 });
