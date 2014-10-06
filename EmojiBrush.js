@@ -96,7 +96,8 @@ EmojiBrush.prototype = {
     });
 
     var $links = $('.color');
-    $links.bind(self.clickEvent, function() {
+    $links.bind(self.clickEvent, function(e) {
+      e.preventDefault();
       $links.removeClass('current');
       self.setCurrentColor($(this).attr('data-color'));
     });
@@ -109,7 +110,8 @@ EmojiBrush.prototype = {
       self.setCurrentColor(self.currentColor);
     });
 
-    $('#palette-tip').bind(self.clickEvent, function() {
+    $('#palette-tip').bind(self.clickEvent, function(e) {
+      e.preventDefault();
       self.showPalette();
     });
   }
