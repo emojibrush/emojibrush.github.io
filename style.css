@@ -33,7 +33,7 @@ html, body {
 
 .brush-artwork {
   text-align: center;
-  background-image: url('/images/emoji-brush.png');
+  background-image: url('images/emoji-brush.png');
   background-size: 416px 388px;
   height: 388px;
   max-width: 416px;
@@ -356,7 +356,7 @@ a.nobodys-link:hover {
 only screen and (min--moz-device-pixel-ratio: 1.5),
 only screen and (min-resolution: 240dpi) {
   .nobodys-logo {
-    background-image: url('/images/nobodys_2x.png');
+    background-image: url('images/nobodys_2x.png');
     background-size: 148px 148px;
     background-repeat: no-repeat;
     width: 148px;
@@ -364,7 +364,7 @@ only screen and (min-resolution: 240dpi) {
   }
 
   .download-icon {
-    background-image: url('/images/download_2x.png');
+    background-image: url('images/download_2x.png');
     background-size: 44px 56px;
     background-repeat: no-repeat;
     width: 44px;
@@ -372,7 +372,7 @@ only screen and (min-resolution: 240dpi) {
   }
 
   .trashcan-icon {
-    background-image: url('/images/trash_2x.png');
+    background-image: url('images/trash_2x.png');
     background-size: 44px 56px;
     background-repeat: no-repeat;
     width: 44px;
