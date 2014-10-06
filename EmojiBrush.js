@@ -99,7 +99,9 @@ EmojiBrush.prototype = {
     $links.bind(self.clickEvent, function(e) {
       e.preventDefault();
       $links.removeClass('current');
-      self.setCurrentColor($(this).attr('data-color'));
+      var color = $(this).attr('data-color');
+      self.setCurrentColor(color);
+      ga('send', 'event', 'color', 'selected', color);
     });
 
     $links.bind('mouseenter', function() {
