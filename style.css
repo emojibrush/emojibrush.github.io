@@ -1,4 +1,4 @@
-body { margin: 0px; overflow: hidden; }
+body { margin: 0px; }
 
 html, body {
   width: 100%;
@@ -135,7 +135,7 @@ a.nobodys-link:hover {
   background-color: transparent;
   position: absolute;
   width: 100%;
-  min-width: 947px;
+  min-width: 1007px;
   top: 0px;
   left: 0px;
   overflow: hidden;
