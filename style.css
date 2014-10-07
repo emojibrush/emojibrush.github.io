@@ -213,7 +213,10 @@ a.nobodys-link:hover {
   height: 74px;
   z-index: 1;
   opacity: 0.8;
-  display: none;
+  background-image: url('images/palette.png');
+  background-size: 20px 20px;
+  background-repeat: no-repeat;
+  background-position: 28px 43px;
 }
 
 #blur-canvas {
