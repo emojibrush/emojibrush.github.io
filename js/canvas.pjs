@@ -19,8 +19,11 @@ var testRect = new Shape.Rectangle(new Point(rect.left, rect.top), new Size(offs
 
 /* Paper.js Events */
 
-function onMouseDown() {
+function onMouseDown(e) {
 
+  if (e.event.touches.length > 1) {
+    return;
+  }
   clearTimeout(showPaletteTimer);
   state.isDrawing = true;
 
@@ -28,6 +31,10 @@ function onMouseDown() {
 }
 
 function onMouseDrag(event) {
+  
+  if (event.event.touches.length > 1) {
+    return;
+  }
 
   // Fix bugs is some browsers
   var tooLeft = event.point.x + 1 <= 0;
@@ -59,19 +66,14 @@ function onMouseDrag(event) {
   brush.hidePalette();
 }
 
-function onMouseUp() {
+function onMouseUp(e) {
   clearTimeout(showPaletteTimer);
   showPaletteTimer = null;
 
   setBackgroundBlurredImage()
   setLinkURL();
 
-
-  setBackgroundBlurredImage()
-
-  if ( ! state.didDraw) {
-    brush.popHistory();
-  } else {
+  if (state.didDraw) {
     brush.renderCanvasWithURL($('#canvas')[0].toDataURL());
     brush.redraw();
     if (brush.undoIdx > 7) {

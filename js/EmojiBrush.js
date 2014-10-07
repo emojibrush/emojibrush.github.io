@@ -67,9 +67,8 @@ EmojiBrush.prototype = {
     var raster = new paper.Raster();
     raster.size = new paper.Size(paper.project.view.size.width, paper.project.view.size.height);
     raster.position = new paper.Point(paper.project.view.size.width / 2, paper.project.view.size.height / 2);
-    raster.source = url
-    raster.resolution = window.devicePixelRatio;
-    raster.scale(0.5)
+    raster.source = url;
+    raster.scale(1 / window.devicePixelRatio);
     var layer = new paper.Layer();
     layer.addChild(raster);
     paper.project.layers.splice(3, 10, layer);
