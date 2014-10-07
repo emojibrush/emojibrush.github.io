@@ -75,7 +75,7 @@ $(document).ready(function() {
           fadeInColor($(this), idx);
         });
         setTimeout(function() {
-         $('#palette-tip-container').fadeIn('fast');
+         $('#palette-tip').fadeIn('fast');
         }, 800);
       }, 200);
 

@@ -211,26 +211,19 @@ a.nobodys-link:hover {
   transition: opacity 1.0s;
 }
 
-#palette-tip-container {
-  position: absolute;
-  text-align: center;
-  width: 100%;
-  min-width: 74px;
-  top: -37px;
-  left: 0px;
-  background-color: transparent;
-  overflow: hidden;
-  display: none;
-}
 
 #palette-tip {
   border-radius: 37px;
   background-color: #ECEDEF;
-  display: inline-block;
+  position: absolute;
+  top: -37px;
+  left: 50%;
+  margin-left: -37px
   width: 74px;
   height: 74px;
   z-index: 1;
   opacity: 0.8;
+  display: none;
 }
 
 #blur-canvas {
