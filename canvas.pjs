@@ -1,11 +1,16 @@
-var drewSomething = false;
-var hasDrawn = false;
+function CanvasState() {
+  this.isDrawing = false;
+  this.didDraw = false;
+  this.firstDraw = true;
+}
+
+var state = new CanvasState();
 
 // add a white background layer
-var layer = new paper.Layer();
-layer.size = paper.project.view.size;
-var rectangle = new paper.Path.Rectangle(0, 0, layer.size.width, layer.size.height);
+var layer = new Layer();
+var rectangle = new Path.Rectangle(0, 0, project.view.size);
 rectangle.fillColor = 'white';
+layer.size = project.view.size;
 layer.addChild(rectangle);
 paper.project.layers.push(layer);
 
@@ -15,26 +20,31 @@ var testRect = new Shape.Rectangle(new Point(rect.left, rect.top), new Size(offs
 /* Paper.js Events */
 
 function onMouseDown() {
-  brush.isDrawing = true;
   project.layers[project.layers.length] = new Layer();
-  clearTimeout(timer);
+
+  clearTimeout(showPaletteTimer);
+  state.isDrawing = true;
 }
 
 function onMouseDrag(event) {
+
+  // Fix bugs is some browsers
   var tooLeft = event.point.x + 1 <= 0;
   var tooRight = event.point.x - 1 >= paper.project.view.size.width;
   var tooUp = event.point.y + 1 <= 0;
   var tooDown = event.point.y - 1 >= paper.project.view.size.height;
-
   if (tooLeft || tooRight || tooUp || tooDown) {
     return;
   };
 
-  drewSomething = true;
+  state.didDraw = true;
+  state.firstDraw = false;
+
   var imageURL = brush.randomImageURL();
 
   // make sure we don't exceed the max res
   var radius = Math.min(Math.max(Math.abs(event.delta.y), Math.abs(event.delta.x)), brush.MAX_RES_SIZE);
+
   var raster = new Raster()
   raster.opacity = 0;
   raster.onLoad = function() {
@@ -45,21 +55,19 @@ function onMouseDrag(event) {
   raster.source = imageURL;
   raster.position = event.point;
 
-  if ( ! hasDrawn) {
-    hasDrawn = true;
-  }
   brush.hidePalette();
 }
 
 function onMouseUp() {
-  clearTimeout(timer);
-  timer = null;
+  clearTimeout(showPaletteTimer);
+  showPaletteTimer = null;
+
   setBackgroundBlurredImage()
   setLinkURL();
 
-  console.log(project.layers.length);
-  if ( ! drewSomething) {
+  if ( ! state.didDraw) {
     brush.undo();
+    setBackgroundBlurredImage()
   } else {
     if (project.layers.length > 10) {
       var raster = new Raster();
@@ -70,25 +78,27 @@ function onMouseUp() {
       project.layers.splice(3);
     }
   }
-  drewSomething = false;
+
+  state.didDraw = false;
+  state.isDrawing = false;
 }
 
-var timer;
+var showPaletteTimer;
 var initialTimer;
 
 function onMouseMove(event) {
   if (testRect.contains(event.point)) {
     clearTimeout(initialTimer);
     initialTimer = null;
-    if ( ! timer) {
-      timer = setTimeout(function() {
+    if ( ! showPaletteTimer) {
+      showPaletteTimer = setTimeout(function() {
         brush.showPalette()
       }, 340);
     }
   } else {
-    clearTimeout(timer);
-    timer = null;
-    if ( ! initialTimer && notIntro && hasDrawn) {
+    clearTimeout(showPaletteTimer);
+    showPaletteTimer = null;
+    if ( ! initialTimer && ! intro && ! state.firstDraw) {
       brush.hidePalette()
     }
   }

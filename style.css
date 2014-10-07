@@ -5,6 +5,16 @@ html, body {
   height: 100%;
 }
 
+#test-box {
+  width: 1007px;
+  height: 107px;
+  position: absolute;
+  top: 0px;
+  left: 50%;
+  margin-left: -503.5px;
+  background: transparent;
+}
+
 .display-table {
   display: table;
   position: absolute;

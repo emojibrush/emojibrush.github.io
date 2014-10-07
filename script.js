@@ -1,9 +1,9 @@
 var clickEv = 'ontouchstart' in document ? 'touchend' : 'click';
-var notIntro = false;
+var intro = true;
+
 var brush = new EmojiBrush();
 
 var palette = document.getElementById('palette');
-var background = document.getElementById('blur-canvas');
 var offset = palette.getBoundingClientRect();
 
 var canvas = document.getElementById('canvas');
@@ -19,16 +19,7 @@ function setBackgroundBlurredImage(imageData) {
   stackBlurCanvasRGBA("blur-canvas", 0, 0, background.width, background.height, 50);
 }
 
-function takeScreenShot() {
-  var canvas = document.getElementById('canvas');
-  var data = canvas.toDataURL("image/png");
-  var encodedPng = data.substring(data.indexOf(',') + 1, data.length);
-  var decodedPng = Base64Binary.decode(encodedPng);
-  return decodedPng;
-}
-
 function setLinkURL() {
-  var canvas = $('#canvas')[0];
   $('#download').attr('href', canvas.toDataURL());
 }
 
@@ -39,23 +30,11 @@ function getParameterByName(name) {
   return results == null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
 }
 
-$('#trashcan').bind('click', function() {
-  var d = confirm("Are you sure you want to delete?");
-  if (d == true) {
-    x = brush.clear();
-  } else {
-    blink;
-  }
-});
-
-function doThat($link, i) {
+function fadeInColor($link, i) {
   setTimeout(function() {
     $link.css('opacity', '1');
   }, i * 20);
 }
-
-var $links = $('.color');
-
 
 $(document).ready(function() {
   $('#download').bind('click', function() {
@@ -72,14 +51,21 @@ $(document).ready(function() {
     event: 'mouseenter'
   });
 
+  $('#trashcan').bind('click', function() {
+    if (confirm("Are you sure you want to delete?")) {
+      brush.clear();
+    }
+  });
+
+  var $links = $('.color');
   $('#draw').bind(clickEv, function() {
-    notIntro = true;
+    intro = false;
     $('#intro').fadeOut(function() {
 
       setTimeout(function() {
         $('#palette').css('opacity', '1');
         $links.each(function(idx) {
-          doThat($(this), idx);
+          fadeInColor($(this), idx);
         });
         setTimeout(function() {
          $('#palette-tip-container').fadeIn('fast');
@@ -95,7 +81,5 @@ $(document).ready(function() {
     ga('send', 'event', 'drawing', 'started');
   });
 
-  $('#share').bind('click', function() {
-  });
 });
 
