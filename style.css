@@ -5,6 +5,10 @@ html, body {
   height: 100%;
 }
 
+#history-images {
+  display: none;
+}
+
 #test-box {
   width: 1007px;
   height: 107px;

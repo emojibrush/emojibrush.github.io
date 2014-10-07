@@ -1,7 +1,7 @@
+var brush;
 var clickEv = 'ontouchstart' in document ? 'touchend' : 'click';
 var intro = true;
 
-var brush = new EmojiBrush();
 
 var palette = document.getElementById('palette');
 var offset = palette.getBoundingClientRect();
@@ -10,6 +10,13 @@ var canvas = document.getElementById('canvas');
 var background = document.getElementById('blur-canvas');
 
 var rect = { left: offset.left - 15, right: offset.left + offset.width + 15, top: offset.top, bottom: offset.bottom + 15 }
+
+function appendImageWithCurrentCanvasScreenshot() {
+  var data = canvas.toDataURL();
+  var image = new Image();
+  image.src = data;
+  $('#history-images').append(image);
+}
 
 function setBackgroundBlurredImage(imageData) {
   var ctx = canvas.getContext('2d');
@@ -76,10 +83,12 @@ $(document).ready(function() {
         $('.color').first().addClass('current').trigger('click');
         brush.setCurrentColor('red');
       }, 1700);
+
     });
 
     ga('send', 'event', 'drawing', 'started');
   });
 
+  brush = new EmojiBrush();
 });
 

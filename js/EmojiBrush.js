@@ -4,6 +4,7 @@ function EmojiBrush() {
   this.clickEvent = 'ontouchstart' in document ? 'touchend' : 'click';
   this.cmdKeyPressed = false;
   this.currentColor = 'red';
+  this.undoIdx = 0;
 
   this.bindEvents();
 }
@@ -29,17 +30,55 @@ EmojiBrush.prototype = {
   },
 
   undo: function() {
-    /*
-    if (paper.project.layers.length > 3) {
-      paper.project.layers.pop();
-      paper.project._needsUpdate = true;
-      paper.project.view.update();
+    this.popHistory();
+    this.redraw();
+  },
+
+  pushHistory: function() {
+    appendImageWithCurrentCanvasScreenshot();
+    brush.undoIdx++;
+
+  },
+
+  popHistory: function() {
+
+    if (this.undoIdx === 0) {
+      return;
     }
-    */
+
+    var $images = $('#history-images').find('img');
+    var img = $images[this.undoIdx - 1];
+    var src = $(img).attr('src');
+
+    this.renderCanvasWithURL(src);
+
+    $(img).remove();
+
+    this.undoIdx--;
+  },
+
+  flatten: function() {
+    this.undoIdx--;
+    $('#history-images').find('img').first().remove();
+  },
+
+  renderCanvasWithURL: function(url) {
+    var raster = new paper.Raster();
+    raster.size = new paper.Size(paper.project.view.size.width, paper.project.view.size.height);
+    raster.position = new paper.Point(paper.project.view.size.width / 2, paper.project.view.size.height / 2);
+    raster.source = url
+    var layer = new paper.Layer();
+    layer.addChild(raster);
+    paper.project.layers.splice(3, 10, layer);
   },
 
   clear: function() {
     paper.project.layers.splice(3);
+    new paper.Layer();
+    this.redraw();
+  },
+
+  redraw: function() {
     paper.project._needsUpdate = true; // forces update
     paper.project.view.update();
     setBackgroundBlurredImage()
