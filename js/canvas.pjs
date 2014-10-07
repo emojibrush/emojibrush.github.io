@@ -8,11 +8,8 @@ var state = new CanvasState();
 
 // add a white background layer
 var layer = new Layer();
-var rectangle = new Path.Rectangle(0, 0, project.view.size);
+var rectangle = new Path.Rectangle(0, 0, view.size.width, view.size.height);
 rectangle.fillColor = 'white';
-layer.size = project.view.size;
-layer.addChild(rectangle);
-paper.project.layers.push(layer);
 
 // 4TH LAYER IS THE DRAWING LAYER
 new Layer();
