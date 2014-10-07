@@ -4,6 +4,7 @@ function EmojiBrush() {
   this.clickEvent = 'ontouchstart' in document ? 'touchend' : 'click';
   this.cmdKeyPressed = false;
   this.currentColor = 'red';
+  this.hasChosenColor = false;
   this.undoIdx = 0;
 
   this.bindEvents();
@@ -133,6 +134,7 @@ EmojiBrush.prototype = {
       $links.removeClass('current');
       var color = $(this).attr('data-color');
       self.setCurrentColor(color);
+      self.hasChosenColor = true;
       ga('send', 'event', 'color', 'selected', color);
     });
 

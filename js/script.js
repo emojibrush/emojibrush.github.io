@@ -2,7 +2,6 @@ var brush;
 var clickEv = 'ontouchstart' in document ? 'touchend' : 'click';
 var intro = true;
 
-
 var palette = document.getElementById('palette');
 var offset = palette.getBoundingClientRect();
 
@@ -82,7 +81,9 @@ $(document).ready(function() {
 
       initialTimer = setTimeout(function() {
         $('.color').first().addClass('current').trigger('click');
-        brush.setCurrentColor('red');
+        if ( ! brush.hasChosenColor) {
+          brush.setCurrentColor('red');
+        }
       }, 1700);
 
     });
