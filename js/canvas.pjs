@@ -21,7 +21,7 @@ var testRect = new Shape.Rectangle(new Point(rect.left, rect.top), new Size(offs
 
 function onMouseDown(e) {
 
-  if (e.event.touches.length > 1) {
+  if (e.event && e.event.touches && e.event.touches.length > 1) {
     return;
   }
   clearTimeout(showPaletteTimer);
@@ -30,17 +30,17 @@ function onMouseDown(e) {
   brush.pushHistory();
 }
 
-function onMouseDrag(event) {
-  
-  if (event.event.touches.length > 1) {
+function onMouseDrag(e) {
+
+  if (e.event && e.event.touches && e.event.touches.length > 1) {
     return;
   }
 
   // Fix bugs is some browsers
-  var tooLeft = event.point.x + 1 <= 0;
-  var tooRight = event.point.x - 1 >= paper.project.view.size.width;
-  var tooUp = event.point.y + 1 <= 0;
-  var tooDown = event.point.y - 1 >= paper.project.view.size.height;
+  var tooLeft = e.point.x + 1 <= 0;
+  var tooRight = e.point.x - 1 >= paper.project.view.size.width;
+  var tooUp = e.point.y + 1 <= 0;
+  var tooDown = e.point.y - 1 >= paper.project.view.size.height;
   if (tooLeft || tooRight || tooUp || tooDown) {
     return;
   };
@@ -51,7 +51,7 @@ function onMouseDrag(event) {
   var imageURL = brush.randomImageURL();
 
   // make sure we don't exceed the max res
-  var radius = Math.min(Math.max(Math.abs(event.delta.y), Math.abs(event.delta.x)), brush.MAX_RES_SIZE);
+  var radius = Math.min(Math.max(Math.abs(e.delta.y), Math.abs(e.delta.x)), brush.MAX_RES_SIZE);
 
   var raster = new Raster()
   raster.opacity = 0;
@@ -61,7 +61,7 @@ function onMouseDrag(event) {
     this.opacity = 1;
   }
   raster.source = imageURL;
-  raster.position = event.point;
+  raster.position = e.point;
 
   brush.hidePalette();
 }
