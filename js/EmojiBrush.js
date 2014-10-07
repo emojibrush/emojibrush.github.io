@@ -75,6 +75,8 @@ EmojiBrush.prototype = {
   clear: function() {
     paper.project.layers.splice(3);
     new paper.Layer();
+    var rect = new paper.Shape.Rectangle(0, 0, paper.project.view.size.width, paper.project.view.size.height);
+    rect.fillColor = 'white';
     this.redraw();
   },
 
