@@ -77,6 +77,8 @@ EmojiBrush.prototype = {
     new paper.Layer();
     var rect = new paper.Shape.Rectangle(0, 0, paper.project.view.size.width, paper.project.view.size.height);
     rect.fillColor = 'white';
+    $('#history-images').empty();
+    this.undoIdx = 0;
     this.redraw();
   },
 
