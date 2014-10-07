@@ -80,8 +80,8 @@ $(document).ready(function() {
       }, 200);
 
       initialTimer = setTimeout(function() {
-        $('.color').first().addClass('current').trigger('click');
         if ( ! brush.hasChosenColor) {
+          $('.color').first().addClass('current').trigger('click');
           brush.setCurrentColor('red');
         }
       }, 1700);
