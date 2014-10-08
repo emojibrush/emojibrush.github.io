@@ -85,5 +85,10 @@ $(document).ready(function() {
 
   brush = new EmojiBrush();
 
+  $('#share').bind('click', function() {
+    brush.shareImage();
+  });
+
+
 });
 

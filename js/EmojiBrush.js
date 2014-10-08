@@ -8,6 +8,9 @@ function EmojiBrush() {
   this.undoIdx = 0;
   this.history = [];
 
+  // this.awsUploadParamsURL = "http://emojibrush.herokuapp.com";
+  this.awsUploadParamsURL = "http://localhost:3000";
+
   this.bindEvents();
 }
 
@@ -108,6 +111,96 @@ EmojiBrush.prototype = {
     $elem.addClass('current');
     this.currentColor = color;
     this.setCursorImageForColor(color);
+  },
+
+  shareImage: function() {
+    var self = this;
+    this.getAWSParams(function(formData) {
+      self.uploadImage(formData);
+    });
+  },
+
+  getAWSParams: function(callback) {
+    var base64Image = this.history[this.history.length - 1].source.split(',')[1];
+    var image = window.atob(base64Image);
+    $.getJSON(this.awsUploadParamsURL, function(response) {
+      var formData = new FormData();
+      var inputs = Object.keys(response);
+      for (var i = 0; i < inputs.length; i++) {
+        var input = inputs[i];
+        formData.append(input, response[input]);
+      }
+      formData.append('file', image, 'emoji.png');
+      callback(formData);
+    });
+  },
+
+  uploadImage: function(formData) {
+    this.xhr = $.ajax({
+      url: 'https://s3.amazonaws.com/assets.emojibrush.com',
+      type: 'post',
+      data: formData,
+      cache: false,
+      processData: false,
+      contentType: false,
+      xhr: function() {
+        var xhr = $.ajaxSettings.xhr();
+        if (xhr.upload) {
+          // xhr.upload.addEventListener('progress', self._progress, false);
+        }
+        return xhr;
+      },
+      success: function(response) {
+        console.log(response);
+        // if (! self._success) return;
+
+        /*
+        var $postResponse = $(response);
+        var upload = {
+          fileType: this.fileType,
+          fileName: this.fileName,
+          fileSize: this.fileSize,
+          url: $postResponse.find("PostResponse Location").text(),
+          bucket: $postResponse.find("PostResponse Bucket").text(),
+          key:  $postResponse.find("PostResponse Key").text(),
+          etag:  $postResponse.find("PostResponse ETag").text(),
+          response: response
+        };
+        self._success.apply(self, [upload]);
+        */
+      },
+      //beforeSend: self._start,
+      //load: self._load,
+      //abort: self._abort,
+      error: function(error) {
+        console.log(error);
+        //self._error
+      }
+    });
+  },
+
+  b64toBlob: function(b64Data, contentType, sliceSize) {
+    contentType = contentType || '';
+    sliceSize = sliceSize || 512;
+
+    var byteCharacters = atob(b64Data);
+    var byteArrays = [];
+
+    for (var offset = 0; offset < byteCharacters.length; offset += sliceSize) {
+        var slice = byteCharacters.slice(offset, offset + sliceSize);
+
+        var byteNumbers = new Array(slice.length);
+        for (var i = 0; i < slice.length; i++) {
+            byteNumbers[i] = slice.charCodeAt(i);
+        }
+
+        var byteArray = new Uint8Array(byteNumbers);
+
+        byteArrays.push(byteArray);
+    }
+
+    var blob = new Blob(byteArrays, {type: contentType});
+    return blob;
   },
 
   hidePalette: function() {
