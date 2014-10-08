@@ -10,14 +10,6 @@ var background = document.getElementById('blur-canvas');
 
 var rect = { left: offset.left - 15, right: offset.left + offset.width + 15, top: offset.top, bottom: offset.bottom + 15 }
 
-
-function appendImageWithCurrentCanvasScreenshot() {
-  var data = canvas.toDataURL();
-  var image = new Image();
-  image.src = data;
-  $('#history-images').append(image);
-}
-
 function setBackgroundBlurredImage() {
   var ctx = canvas.getContext('2d');
   var imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);

@@ -11,7 +11,7 @@ var layer = new Layer();
 var rectangle = new Path.Rectangle(0, 0, view.size.width, view.size.height);
 rectangle.fillColor = 'white';
 
-// 4TH LAYER IS THE DRAWING LAYER
+// 3RD LAYER IS THE DRAWING LAYER
 new Layer();
 
 /* For CSS Blur (seems to work perfectly in Chrome) */
@@ -74,11 +74,13 @@ function onMouseUp(e) {
   setLinkURL();
 
   if (state.didDraw) {
+    /*
     brush.renderCanvasWithURL($('#canvas')[0].toDataURL());
     brush.redraw();
     if (brush.undoIdx > 10) {
       brush.flatten();
     }
+    */
   }
 
   state.didDraw = false;
