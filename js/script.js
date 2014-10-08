@@ -19,7 +19,7 @@ function setBackgroundBlurredImage() {
 }
 
 function setLinkURL() {
-  $('#download').attr('href', canvas.toDataURL());
+  $('#download').attr('href', canvas.toDataURL("image/jpeg", 0.9));
 }
 
 function getParameterByName(name) {
