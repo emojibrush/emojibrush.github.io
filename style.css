@@ -477,16 +477,20 @@ a.nobodys-link:hover {
     padding: 0px 20px;
   }
 
+  #phoney-phones h3 { 
+    color: #bebebe;
+  }
+
+  .main { 
+    display: none;
+  }
+
   a#nobodys {
     color: #666;
   }
 
   p {
     margin-top: 200px;
-  }
-
-  .display-table-cell {
-    padding-top: 400px;
   }
 
   .help-copy {
