@@ -37,7 +37,7 @@ function fadeInColor($link, i) {
 
 $(document).ready(function() {
   $('#download').bind('click', function() {
-      ga('send', 'event', 'download', 'drawing', $(this).attr('src'));
+    ga('send', 'event', 'download', 'drawing', $(this).attr('src'));
   });
 
   $('.color').easyAudio({
@@ -81,6 +81,11 @@ $(document).ready(function() {
     });
 
     ga('send', 'event', 'drawing', 'started');
+  });
+
+  $('#email-yourself').bind('click', function() {
+
+    ga('send', 'event', 'email', 'self');
   });
 
   brush = new EmojiBrush();
