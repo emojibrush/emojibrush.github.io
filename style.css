@@ -339,6 +339,32 @@ a.nobodys-link:hover {
   cursor: pointer;
 }
 
+.share-icon {
+  background-image: url('images/share.png');
+  background-size: 22px 80px;
+  background-repeat: no-repeat;
+  width: 22px;
+  height: 80px;
+  position: absolute;
+  bottom: 104px;
+  right: 28px;
+  cursor: pointer;
+}
+
+.share-text {
+  width: 10px;
+  word-wrap: break-word;
+  font-size: 10px;
+  display: inline-block;
+  text-align: center;
+  left: 6px;
+  position: absolute;
+  top: 24px;
+  line-height: 10px;
+  font-family: 'Montserrat', sans-serif;
+  color: #9FA2A6;
+}
+
 @-webkit-keyframes colorGrow {
   0% { -webkit-transform: scale(1.0); }
   25% { -webkit-transform: scale(1.30); }
@@ -382,6 +408,10 @@ a.nobodys-link:hover {
     width: 22px;
     height: 28px;
   }
+
+  .share-icon {
+    background-image: url('images/share@2x.png');
+  } 
 
   .emoji {
     background-image: url('images/emoji-span_2x.png');
