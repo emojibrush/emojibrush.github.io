@@ -76,7 +76,7 @@ function onMouseUp(e) {
   if (state.didDraw) {
     brush.renderCanvasWithURL($('#canvas')[0].toDataURL());
     brush.redraw();
-    if (brush.undoIdx > 7) {
+    if (brush.undoIdx > 10) {
       brush.flatten();
     }
   }

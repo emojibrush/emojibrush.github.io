@@ -6,6 +6,7 @@ function EmojiBrush() {
   this.currentColor = 'red';
   this.hasChosenColor = false;
   this.undoIdx = 0;
+  this.history = [];
 
   this.bindEvents();
 }
@@ -38,7 +39,6 @@ EmojiBrush.prototype = {
   pushHistory: function() {
     appendImageWithCurrentCanvasScreenshot();
     brush.undoIdx++;
-
   },
 
   popHistory: function() {
@@ -69,9 +69,13 @@ EmojiBrush.prototype = {
     raster.position = new paper.Point(paper.project.view.size.width / 2, paper.project.view.size.height / 2);
     raster.source = url;
     raster.scale(1 / window.devicePixelRatio);
+    raster.opacity = 0;
+    this.history.push(raster);
+    /*
     var layer = new paper.Layer();
     layer.addChild(raster);
     paper.project.layers.splice(3, 10, layer);
+    */
   },
 
   clear: function() {
