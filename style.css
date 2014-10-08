@@ -25,6 +25,10 @@ html, body {
   vertical-align: middle;
 }
 
+#phoney-phones {
+  display: none;
+}
+
 #intro {
   width: 100%;
   height: 100%;
@@ -359,6 +363,8 @@ a.nobodys-link:hover {
   100% { transform: scale(1.2); }
 }
 
+
+
 @media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min--moz-device-pixel-ratio: 1.5), only screen and (min-resolution: 240dpi) {
 
   .download-icon {
@@ -425,5 +431,51 @@ a.nobodys-link:hover {
   }
   .main {
     padding-top: 0px;
+  }
+}
+
+@media screen and (max-device-width: 400px) {
+  #phoney-phones {
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    background-color: #fff;
+    z-index: 5;
+    overflow: hidden;
+    text-align: center;
+    padding: 0px 20px;
+  }
+
+  .display-table-cell {
+    padding-top: 200px;
+  }
+
+  .help-copy {
+    padding: 0px 60px;
+  }
+
+  #phoney-phones .btn-draw {
+    padding: 54px 55px;
+    text-decoration: none;
+    font-size: 34px;
+    box-shadow: none;
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none;
+    -oz-box-shadow: none;
+    background: #ddd;
+  }
+
+  h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 60px;
+  }
+
+  p {
+    font-family: CourierNewPSMT;
+    font-size: 36px;
+    font-weight: 300;
+    color: #666;
+    margin-bottom: 80px;
   }
 }
