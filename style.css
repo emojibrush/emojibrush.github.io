@@ -36,7 +36,7 @@ html, body {
   position: absolute;
   top: 0px;
   left: 0px;
-  z-index: 3;
+  z-index: 4;
 }
 
 .brush-artwork {
@@ -149,6 +149,14 @@ a.nobodys-link:hover {
   bottom: 16px;
   position: absolute;
   color: #C1C4C7;
+  z-index: 3;
+}
+
+.gallery-link {
+  text-align: center;
+  left: auto;
+  width: 100%;
+  z-index: 1;
 }
 
 .nobodys-logo a {
@@ -325,6 +333,7 @@ a.nobodys-link:hover {
   width: 22px;
   height: 28px;
   cursor: pointer;
+  z-index: 3;
 }
 
 .trashcan-icon {
@@ -337,6 +346,7 @@ a.nobodys-link:hover {
   bottom: 22px;
   right: 28px;
   cursor: pointer;
+  z-index: 3;
 }
 
 .share-icon {
