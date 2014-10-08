@@ -46,14 +46,17 @@ EmojiBrush.prototype = {
 
   popHistory: function() {
 
-    if (this.undoIdx === 0) {
+    if (this.undoIdx == 1) {
       return;
     }
 
-    var raster = this.history[this.undoIdx - 1];
-    this.renderCanvasWithRaster(raster);
-    this.history.splice(this.undoIdx - 1, this.history.length);
+    this.history.pop();
     this.undoIdx--;
+
+    var raster = this.history[this.undoIdx - 1];
+    if (raster) {
+      this.renderCanvasWithRaster(raster);
+    }
   },
 
   flatten: function() {

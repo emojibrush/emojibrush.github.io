@@ -19,15 +19,16 @@ var testRect = new Shape.Rectangle(new Point(rect.left, rect.top), new Size(offs
 
 /* Paper.js Events */
 
+brush.pushHistory();
+
 function onMouseDown(e) {
 
   if (e.event && e.event.touches && e.event.touches.length > 1) {
     return;
   }
+
   clearTimeout(showPaletteTimer);
   state.isDrawing = true;
-
-  brush.pushHistory();
 }
 
 function onMouseDrag(e) {
@@ -74,6 +75,7 @@ function onMouseUp(e) {
   setLinkURL();
 
   if (state.didDraw) {
+    brush.pushHistory()
     brush.renderCanvasWithRaster(brush.rasterForCurrentCanvas());
     if (brush.undoIdx > 15) {
       brush.flatten();
