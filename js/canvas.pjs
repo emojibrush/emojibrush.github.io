@@ -65,6 +65,8 @@ function onMouseDrag(e) {
   raster.position = e.point;
 
   brush.hidePalette();
+
+  ga('send', 'event', 'emoji', 'drawn', imageURL);
 }
 
 function onMouseUp(e) {

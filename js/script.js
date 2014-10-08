@@ -37,17 +37,36 @@ function fadeInColor($link, i) {
 
 $(document).ready(function() {
   $('#download').bind('click', function() {
-    ga('send', 'event', 'download', 'drawing', $(this).attr('src'));
+    var url = $(this).attr('src');
+    if ($.trim(url) !== "") {
+      url = url.split(',')[1];
+    }
+    ga('send', 'event', 'download', 'drawing', url);
   });
 
-  $('.color').easyAudio({
+  var $poop = $('.color[data-color="brown"]');
+  var poops = ['audio/poop', 'audio/poop2', 'audio/poop3', 'audio/poop4'];
+  var $colors = $('.color').not($poop);
+
+  $colors.easyAudio({
     src: 'audio/pop',
     event: 'click'
   });
 
-  $('.color').easyAudio({
+  $colors.easyAudio({
     src: 'audio/tick',
     event: 'mouseenter'
+  });
+
+  console.log(poops[2]);
+  $poop.easyAudio({
+    src: poops[Math.floor(Math.random() * 5)],
+    event: 'mouseenter'
+  });
+
+  $poop.easyAudio({
+    src: poops[Math.floor(Math.random() * 4)],
+    event: 'click'
   });
 
   $('#trashcan').bind('click', function() {
@@ -84,7 +103,6 @@ $(document).ready(function() {
   });
 
   $('#email-yourself').bind('click', function() {
-
     ga('send', 'event', 'email', 'self');
   });
 
