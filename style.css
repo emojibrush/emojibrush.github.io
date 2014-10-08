@@ -349,6 +349,7 @@ a.nobodys-link:hover {
   bottom: 104px;
   right: 28px;
   cursor: pointer;
+  display: none;
 }
 
 .share-text {
@@ -363,6 +364,7 @@ a.nobodys-link:hover {
   line-height: 10px;
   font-family: 'Montserrat', sans-serif;
   color: #9FA2A6;
+  display: none;
 }
 
 @-webkit-keyframes colorGrow {
@@ -411,6 +413,7 @@ a.nobodys-link:hover {
 
   .share-icon {
     background-image: url('images/share@2x.png');
+    display: none;
   } 
 
   .emoji {
