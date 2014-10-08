@@ -35,6 +35,22 @@ function fadeInColor($link, i) {
   }, i * 20);
 }
 
+/*
+function postArtwork(url) {
+  $.ajax({
+    url: 'http://localhost:3000/artwork',
+    data: {url: url},
+    type: 'POST',
+    success: function(response) {
+      console.log(success);
+    },
+    error: function(response) {
+      console.log(success);
+    }
+  });
+}
+*/
+
 $(document).ready(function() {
   $('#download').bind('click', function() {
     var url = $(this).attr('src');
@@ -42,6 +58,8 @@ $(document).ready(function() {
       url = url.split(',')[1];
     }
     ga('send', 'event', 'download', 'drawing', url);
+
+    //postArtwork(url);
   });
 
   var $poop = $('.color[data-color="brown"]');
