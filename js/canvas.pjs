@@ -74,13 +74,10 @@ function onMouseUp(e) {
   setLinkURL();
 
   if (state.didDraw) {
-    /*
-    brush.renderCanvasWithURL($('#canvas')[0].toDataURL());
-    brush.redraw();
-    if (brush.undoIdx > 10) {
+    brush.renderCanvasWithRaster(brush.rasterForCurrentCanvas());
+    if (brush.undoIdx > 15) {
       brush.flatten();
     }
-    */
   }
 
   state.didDraw = false;

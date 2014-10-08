@@ -37,11 +37,7 @@ EmojiBrush.prototype = {
   },
 
   pushHistory: function() {
-    var raster = new paper.Raster();
-    raster.size = new paper.Size(paper.project.view.size.width, paper.project.view.size.height);
-    raster.position = new paper.Point(paper.project.view.size.width / 2, paper.project.view.size.height / 2);
-    raster.source = canvas.toDataURL();
-    raster.scale(1 / window.devicePixelRatio);
+    var raster = this.rasterForCurrentCanvas();
     raster.opacity = 0;
     this.history.push(raster);
 
@@ -56,7 +52,7 @@ EmojiBrush.prototype = {
 
     var raster = this.history[this.undoIdx - 1];
     this.renderCanvasWithRaster(raster);
-    this.history.splice(this.undoIdx - 1, 10);
+    this.history.splice(this.undoIdx - 1, this.history.length);
     this.undoIdx--;
   },
 
@@ -69,7 +65,7 @@ EmojiBrush.prototype = {
     raster.opacity = 1;
     var layer = new paper.Layer();
     layer.addChild(raster);
-    paper.project.layers.splice(2, 10, layer);
+    paper.project.layers.splice(2, paper.project.layers.length, layer);
     this.redraw();
   },
 
@@ -81,6 +77,15 @@ EmojiBrush.prototype = {
     $('#history-images').empty();
     this.undoIdx = 0;
     this.redraw();
+  },
+
+  rasterForCurrentCanvas: function() {
+    var raster = new paper.Raster();
+    raster.size = new paper.Size(paper.project.view.size.width, paper.project.view.size.height);
+    raster.position = new paper.Point(paper.project.view.size.width / 2, paper.project.view.size.height / 2);
+    raster.source = canvas.toDataURL();
+    raster.scale(1 / window.devicePixelRatio);
+    return raster;
   },
 
   redraw: function() {
