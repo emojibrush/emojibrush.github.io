@@ -401,7 +401,14 @@ a.nobodys-link:hover {
   100% { transform: scale(1.2); }
 }
 
-
+.view-gallery {
+  text-align: center;
+  width: 100%;
+  position: absolute;
+  left: 0px;
+  bottom: 0px;
+  padding: 10px 0px;
+}
 
 @media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min--moz-device-pixel-ratio: 1.5), only screen and (min-resolution: 240dpi) {
 
