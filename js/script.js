@@ -1,21 +1,20 @@
-var brush;
 var clickEv = 'ontouchstart' in document ? 'touchend' : 'click';
 var intro = true;
-
-var palette = document.getElementById('palette');
-var offset = palette.getBoundingClientRect();
-
-var canvas = document.getElementById('canvas');
-var background = document.getElementById('blur-canvas');
-
-var rect = { left: offset.left - 15, right: offset.left + offset.width + 15, top: offset.top, bottom: offset.bottom + 15 }
+var brush;
+var $palette;
+var offset;
+var size;
+var $canvas;
+var canvas;
+var $background;
+var rect;
 
 function setBackgroundBlurredImage() {
   var ctx = canvas.getContext('2d');
   var imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
-  var ctx2 = background.getContext('2d');
-  ctx2.putImageData(imageData, -offset.left, 0);
-  stackBlurCanvasRGBA("blur-canvas", 0, 0, background.width, background.height, 50);
+  var ctx2 = $background[0].getContext('2d');
+  ctx2.putImageData(imageData, -rect.position.left, 0);
+  stackBlurCanvasRGBA("blur-canvas", 0, 0, $background.width(), $background.height(), 50);
 }
 
 function setLinkURL() {
@@ -45,38 +44,14 @@ function postArtwork(url) {
   });
 }
 
-$(document).ready(function() {
+function bindEvents() {
   $('#download').bind('click', function() {
     var url = $(this).attr('href');
     if ($.trim(url) !== "") {
       url = url.split(',')[1];
     }
-    ga('send', 'event', 'download', 'drawing');
+    EmojiTracker.track('download', 'drawing');
     postArtwork(url);
-  });
-
-  var $poop = $('.color[data-color="brown"]');
-  var poops = ['audio/poop', 'audio/poop2', 'audio/poop3', 'audio/poop4'];
-  var $colors = $('.color').not($poop);
-
-  $colors.easyAudio({
-    sound: 'audio/pop',
-    event: 'click'
-  });
-
-  $colors.easyAudio({
-    sound: 'audio/tick',
-    event: 'mouseenter'
-  });
-
-  $poop.easyAudio({
-    sound: poops,
-    event: 'mouseenter'
-  });
-
-  $poop.easyAudio({
-    sound: poops,
-    event: 'click'
   });
 
   $('#trashcan').bind('click', function() {
@@ -91,7 +66,7 @@ $(document).ready(function() {
     $('#intro').fadeOut(function() {
 
       setTimeout(function() {
-        $('#palette').css('opacity', '1');
+        $palette.css('opacity', '1');
         $links.each(function(idx) {
           fadeInColor($(this), idx);
         });
@@ -109,14 +84,40 @@ $(document).ready(function() {
 
     });
 
-    ga('send', 'event', 'drawing', 'started');
+    EmojiTracker.track('drawing', 'started');
   });
 
   $('#email-yourself').bind('click', function() {
-    ga('send', 'event', 'email', 'self');
+    EmojiTracker.track('email', 'self');
   });
+}
 
+function setupAudio() {
+  var $poop = $('.color[data-color="brown"]');
+  var poops = ['audio/poop', 'audio/poop2', 'audio/poop3', 'audio/poop4'];
+  var $colors = $('.color').not($poop);
+
+  $colors.easyAudio({ sound: 'audio/pop', event: 'click' });
+  $colors.easyAudio({ sound: 'audio/tick', event: 'mouseenter' });
+  $poop.easyAudio({ sound: poops, event: 'mouseenter' });
+  $poop.easyAudio({ sound: poops, event: 'click' });
+}
+
+function setup() {
+  $palette = $('#palette');
+  offset = $palette.offset();
+  size = {width: $palette.innerWidth(), height: $palette.innerHeight()};
+  $canvas = $('#canvas');
+  canvas = $canvas[0];
+  $background = $('#blur-canvas');
+  rect = {position:offset, size:size}
   brush = new EmojiBrush();
+}
 
+$(document).ready(function() {
+  bindEvents();
+  setupAudio();
+
+  setup();
 });
 

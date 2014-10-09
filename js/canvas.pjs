@@ -14,12 +14,11 @@ rectangle.fillColor = 'white';
 // 3RD LAYER IS THE DRAWING LAYER
 new Layer();
 
-/* For CSS Blur (seems to work perfectly in Chrome) */
-var testRect = new Shape.Rectangle(new Point(rect.left, rect.top), new Size(offset.width + 30, offset.height + 15));
-
-/* Paper.js Events */
+var testRect = new Shape.Rectangle(new Point(rect.position.left, rect.position.top), new Size(rect.size.width + 30, rect.size.height + 15));
 
 brush.history.push();
+
+/* Paper.js Events */
 
 function onMouseDown(e) {
 
@@ -66,7 +65,7 @@ function onMouseDrag(e) {
 
   brush.hidePalette();
 
-  ga('send', 'event', 'emoji', 'drawn', imageURL);
+  EmojiTracker.track('emoji', 'drawn', imageURL);
 }
 
 function onMouseUp(e) {

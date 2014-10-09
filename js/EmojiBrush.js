@@ -1,3 +1,9 @@
+var EmojiTracker = {
+  track: function(category, action, label) {
+    ga('send', 'event', category, action, label);
+  }
+}
+
 function EmojiHistory(brush) {
   this.history = [];
   this.idx = 0;
@@ -73,7 +79,7 @@ EmojiBrush.prototype = {
     this.history.pop();
     this.redraw();
 
-    ga('send', 'event', 'undo');
+    EmojiTracker.track('undo');
   },
 
   renderCanvasWithRaster: function(raster) {
@@ -155,7 +161,7 @@ EmojiBrush.prototype = {
       var color = $(this).attr('data-color');
       self.setCurrentColor(color);
       self.hasChosenColor = true;
-      ga('send', 'event', 'color', 'selected', color);
+      EmojiTracker.track('color', 'selected', color);
     });
 
     $links.bind('mouseenter', function() {
