@@ -39,6 +39,15 @@ html, body {
   z-index: 4;
 }
 
+a.gallery-link-intro {
+  background-image: url('images/gallery.png');
+  background-size: 358px 102px;
+  height: 102px;
+  width: 358px;
+  display: block;
+  margin: 0 auto;
+}
+
 .brush-artwork {
   text-align: center;
   background-image: url('images/emoji-brush.png');
@@ -78,8 +87,12 @@ html, body {
   font-family: 'Montserrat', sans-serif;
   font-size: 30px;
   margin: 0;
-  margin-bottom: 58px;
+  margin-bottom: 38px;
   font-weight: 400;
+}
+
+p.emojis-drawn {
+  margin-bottom: 40px;
 }
 
 .chrome-icon {
@@ -104,7 +117,7 @@ a.btn-draw {
   line-height: 19px;
   padding: 18px 35px;
   display: inline-block;
-  margin-bottom: 52px;
+  margin-bottom: 28px;
   cursor: pointer;
 }
 
@@ -447,6 +460,10 @@ a.nobodys-link:hover {
 
   .chrome-icon {
     background-image: url('images/chrome-icon_2x.png');
+  }
+
+  a.gallery-link-intro {
+    background-image: url('images/gallery@2x.png');
   }
 }
 
