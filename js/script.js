@@ -51,8 +51,7 @@ $(document).ready(function() {
     if ($.trim(url) !== "") {
       url = url.split(',')[1];
     }
-    ga('send', 'event', 'download', 'drawing', url);
-
+    ga('send', 'event', 'download', 'drawing');
     postArtwork(url);
   });
 
