@@ -39,7 +39,9 @@ function postArtwork(url) {
   $.ajax({
     url: "http://emojibrush.herokuapp.com/artwork",
     data: { "url": url },
-    type: 'POST'
+    type: 'POST',
+    success: function() {},
+    error: function() {}
   });
 }
 
