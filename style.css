@@ -95,6 +95,12 @@ p.emojis-drawn {
   margin-bottom: 40px;
 }
 
+p.chrome {
+  position: absolute;
+  top: 0px;
+  right: 20px;
+}
+
 .chrome-icon {
   background-image: url('images/chrome-icon.png');
   background-size: 18px 18px;
@@ -467,13 +473,13 @@ a.nobodys-link:hover {
   }
 }
 
-@media screen and (max-height: 1024px) {
+@media screen and (max-height: 1015px) {
   .brush-artwork {
     background-size: 90%;
   }
 }
 
-@media screen and (max-height: 950px) {
+@media screen and (max-height: 910px) {
   .brush-artwork {
     background-size: 80%;
   }
@@ -487,7 +493,7 @@ a.nobodys-link:hover {
 
 @media screen and (max-height: 776px) {
   .brush-artwork {
-    background-size: 60%;
+    background-size: 45%;
   }
   .main {
     padding-top: 100px;
@@ -496,7 +502,7 @@ a.nobodys-link:hover {
 
 @media screen and (max-height: 710px) {
   .brush-artwork {
-    background-size: 50%;
+    background-size: 35%;
   }
 }
 
