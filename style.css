@@ -424,7 +424,7 @@ a.nobodys-link:hover {
   .share-icon {
     background-image: url('images/share@2x.png');
     display: none;
-  } 
+  }
 
   .emoji {
     background-image: url('images/emoji-span_2x.png');
@@ -490,11 +490,11 @@ a.nobodys-link:hover {
     padding: 0px 20px;
   }
 
-  #phoney-phones h3 { 
+  #phoney-phones h3 {
     color: #bebebe;
   }
 
-  .main { 
+  .main {
     display: none;
   }
 

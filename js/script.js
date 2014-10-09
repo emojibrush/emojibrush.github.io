@@ -35,11 +35,13 @@ function fadeInColor($link, i) {
   }, i * 20);
 }
 
-/*
 function postArtwork(url) {
+  console.log(url);
   $.ajax({
-    url: 'http://localhost:3000/artwork',
-    data: {url: url},
+    url: "http://localhost:3000/artwork",
+    data: {
+      "url": url
+    },
     type: 'POST',
     success: function(response) {
       console.log(success);
@@ -49,17 +51,16 @@ function postArtwork(url) {
     }
   });
 }
-*/
 
 $(document).ready(function() {
   $('#download').bind('click', function() {
-    var url = $(this).attr('src');
+    var url = $(this).attr('href');
     if ($.trim(url) !== "") {
       url = url.split(',')[1];
     }
     ga('send', 'event', 'download', 'drawing', url);
 
-    //postArtwork(url);
+    postArtwork(url);
   });
 
   var $poop = $('.color[data-color="brown"]');
