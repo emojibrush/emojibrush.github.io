@@ -38,7 +38,7 @@ function fadeInColor($link, i) {
 function postArtwork(url) {
   console.log(url);
   $.ajax({
-    url: "http://localhost:3000/artwork",
+    url: "http://emojibrush.herokuapp.com/artwork",
     data: {
       "url": url
     },
