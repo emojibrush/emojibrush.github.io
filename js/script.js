@@ -61,22 +61,22 @@ $(document).ready(function() {
   var $colors = $('.color').not($poop);
 
   $colors.easyAudio({
-    src: 'audio/pop',
+    sound: 'audio/pop',
     event: 'click'
   });
 
   $colors.easyAudio({
-    src: 'audio/tick',
+    sound: 'audio/tick',
     event: 'mouseenter'
   });
 
   $poop.easyAudio({
-    src: poops[Math.floor(Math.random() * 5)],
+    sound: poops,
     event: 'mouseenter'
   });
 
   $poop.easyAudio({
-    src: poops[Math.floor(Math.random() * 4)],
+    sound: poops,
     event: 'click'
   });
 
