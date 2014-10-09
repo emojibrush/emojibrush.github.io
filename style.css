@@ -411,6 +411,13 @@ a.nobodys-link:hover {
   margin-bottom: 0px;
 }
 
+.social {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  z-index: 5;
+}
+
 @media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min--moz-device-pixel-ratio: 1.5), only screen and (min-resolution: 240dpi) {
 
   .download-icon {

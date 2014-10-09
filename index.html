@@ -4,6 +4,12 @@
 <head>
 
   <meta charset="utf-8">
+
+  <meta property="og:url" content="http://emojibrush.com" />
+  <meta property="og:title" content="Draw with emoji" />
+  <meta property="og:site_name" content="#emojibrush"/>
+  <meta property="og:image" content="http://33.media.tumblr.com/52a71dd28819e6d6bc6a5689f91c5c27/tumblr_nd4qbnwLQi1u0lfj2o1_1280.png"/>
+
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   <meta name="description" content="Draw with emoji">
@@ -38,6 +44,12 @@
   </div>
 
   <div id="intro">
+    <div class="social">
+      <div class="fb-like" data-href="http://emojibrush.com" data-layout="button_count" data-action="like" data-show-faces="false" data-share="false"></div>
+        <br>
+        <br>
+      <a href="https://twitter.com/share" class="twitter-share-button" data-text="Draw with emoji" data-via="emojibrush" data-hashtags="emojibrush" data-dnt="true">Tweet</a>
+    </div>
     <div class="brush-artwork"></div>
     <div class="display-table">
       <div class="display-table-cell">
@@ -109,6 +121,8 @@
 
   <script type="text/paperscript" src="js/canvas.pjs" canvas="canvas"></script>
 
+  <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+
   <script>
     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
     (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -119,7 +133,16 @@
     ga('send', 'pageview');
   </script>
 
-  <div id="history-images"></div>
+  <div id="fb-root"></div>
+
+  <script>(function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&appId=1542199379325603&version=v2.0";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));</script>
+
 
 </body>
 </html>
