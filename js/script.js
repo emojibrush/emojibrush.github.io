@@ -36,19 +36,10 @@ function fadeInColor($link, i) {
 }
 
 function postArtwork(url) {
-  console.log(url);
   $.ajax({
     url: "http://emojibrush.herokuapp.com/artwork",
-    data: {
-      "url": url
-    },
-    type: 'POST',
-    success: function(response) {
-      console.log(success);
-    },
-    error: function(response) {
-      console.log(success);
-    }
+    data: { "url": url },
+    type: 'POST'
   });
 }
 
@@ -77,7 +68,6 @@ $(document).ready(function() {
     event: 'mouseenter'
   });
 
-  console.log(poops[2]);
   $poop.easyAudio({
     src: poops[Math.floor(Math.random() * 5)],
     event: 'mouseenter'

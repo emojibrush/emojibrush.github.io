@@ -1,3 +1,37 @@
+function EmojiHistory(brush) {
+  this.history = [];
+  this.idx = 0;
+  this.brush = brush;
+}
+
+EmojiHistory.prototype = {
+  push: function() {
+    var raster = this.brush.rasterForCurrentCanvas();
+    raster.opacity = 0;
+    this.history.push(raster);
+    this.idx++;
+  },
+
+  pop: function() {
+    if (this.idx == 1) {
+      return;
+    }
+
+    this.history.pop();
+    this.idx--;
+
+    var raster = this.history[this.idx - 1];
+    if (raster) {
+      brush.renderCanvasWithRaster(raster);
+    }
+  },
+
+  flatten: function() {
+    this.idx--;
+    this.history.shift();
+  }
+};
+
 function EmojiBrush() {
   this.MAX_RES_SIZE = 160;
   this.palette = document.getElementById('palette-container');
@@ -5,8 +39,12 @@ function EmojiBrush() {
   this.cmdKeyPressed = false;
   this.currentColor = 'red';
   this.hasChosenColor = false;
+
+  /*
   this.undoIdx = 0;
   this.history = [];
+  */
+  this.history = new EmojiHistory(this);
 
   this.bindEvents();
 }
@@ -32,36 +70,10 @@ EmojiBrush.prototype = {
   },
 
   undo: function() {
-    this.popHistory();
-    this.redraw();
-  },
-
-  pushHistory: function() {
-    var raster = this.rasterForCurrentCanvas();
-    raster.opacity = 0;
-    this.history.push(raster);
-
-    brush.undoIdx++;
-  },
-
-  popHistory: function() {
-
-    if (this.undoIdx == 1) {
-      return;
-    }
-
     this.history.pop();
-    this.undoIdx--;
+    this.redraw();
 
-    var raster = this.history[this.undoIdx - 1];
-    if (raster) {
-      this.renderCanvasWithRaster(raster);
-    }
-  },
-
-  flatten: function() {
-    this.undoIdx--;
-    this.history.shift();
+    ga('send', 'event', 'undo');
   },
 
   renderCanvasWithRaster: function(raster) {

@@ -19,7 +19,7 @@ var testRect = new Shape.Rectangle(new Point(rect.left, rect.top), new Size(offs
 
 /* Paper.js Events */
 
-brush.pushHistory();
+brush.history.push();
 
 function onMouseDown(e) {
 
@@ -77,9 +77,9 @@ function onMouseUp(e) {
   setLinkURL();
 
   if (state.didDraw) {
-    brush.pushHistory()
+    brush.history.push()
     brush.renderCanvasWithRaster(brush.rasterForCurrentCanvas());
-    if (brush.undoIdx > 15) {
+    if (brush.undoIdx > 12) {
       brush.flatten();
     }
   }
