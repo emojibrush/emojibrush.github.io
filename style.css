@@ -408,6 +408,7 @@ a.nobodys-link:hover {
   left: 0px;
   bottom: 0px;
   padding: 10px 0px;
+  margin-bottom: 0px;
 }
 
 @media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min--moz-device-pixel-ratio: 1.5), only screen and (min-resolution: 240dpi) {
