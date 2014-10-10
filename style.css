@@ -18,6 +18,10 @@ html, body {
   height: 100%;
 }
 
+iframe[id^=twitter-widget] {
+margin-bottom: 4px;
+}
+
 .display-table-cell {
   display: table-cell;
   width: 100%;
