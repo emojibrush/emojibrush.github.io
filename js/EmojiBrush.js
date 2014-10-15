@@ -1,10 +1,8 @@
-var paper = paper || {};
-
 var EmojiTracker = {
   track: function(category, action, label) {
     ga('send', 'event', category, action, label);
   }
-}
+};
 
 function EmojiHistory(brush) {
   this.history = [];
@@ -94,7 +92,7 @@ EmojiBrush.prototype = {
 
   clear: function() {
     paper.project.layers.splice(3);
-    new paper.Layer();
+    var layer = new paper.Layer();
     var rect = new paper.Shape.Rectangle(0, 0, paper.project.view.size.width, paper.project.view.size.height);
     rect.fillColor = 'white';
     $('#history-images').empty();

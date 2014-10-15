@@ -25,7 +25,7 @@ function getParameterByName(name) {
   name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
   var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
   results = regex.exec(location.search);
-  return results == null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+  return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
 }
 
 function fadeInColor($link, i) {
@@ -55,7 +55,7 @@ function bindEvents() {
   });
 
   $('#trashcan').bind('click', function() {
-    if (confirm("Are you sure you want to delete?")) {
+    if (window.confirm("Are you sure you want to delete?")) {
       brush.clear();
     }
   });
@@ -110,7 +110,7 @@ function setup() {
   $canvas = $('#canvas');
   canvas = $canvas[0];
   $background = $('#blur-canvas');
-  rect = {position:offset, size:size}
+  rect = { position: offset, size: size };
   brush = new EmojiBrush();
 }
 
