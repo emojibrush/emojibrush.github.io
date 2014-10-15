@@ -1,3 +1,5 @@
+var paper = paper || {};
+
 var EmojiTracker = {
   track: function(category, action, label) {
     ga('send', 'event', category, action, label);
@@ -19,7 +21,7 @@ EmojiHistory.prototype = {
   },
 
   pop: function() {
-    if (this.idx == 1) {
+    if (this.idx === 1) {
       return;
     }
 
@@ -28,7 +30,7 @@ EmojiHistory.prototype = {
 
     var raster = this.history[this.idx - 1];
     if (raster) {
-      brush.renderCanvasWithRaster(raster);
+      this.brush.renderCanvasWithRaster(raster);
     }
   },
 
@@ -112,7 +114,7 @@ EmojiBrush.prototype = {
   redraw: function() {
     paper.project._needsUpdate = true; // forces update
     paper.project.view.update();
-    setBackgroundBlurredImage()
+    setBackgroundBlurredImage();
   },
 
   randomImageURL: function() {
@@ -177,5 +179,5 @@ EmojiBrush.prototype = {
       self.showPalette();
     });
   }
-}
+};
 
